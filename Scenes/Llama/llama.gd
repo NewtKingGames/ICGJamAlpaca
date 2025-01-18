@@ -10,8 +10,8 @@ var SPIT_SCENE: PackedScene = preload("res://Scenes/Projectiles/llama_spit.tscn"
 @export var flung_max_speed: float = 900.0
 @export var pen_enter_speed: float = 240.0 
 @export var pen_time: float = 40
-@export var spit_rate: float = 1.0
-@export var spit_speed: float = 120.0
+@export var spit_rate: float = 1.5
+@export var spit_speed: float = 240.0
 
 
 var flung: bool = false
@@ -30,7 +30,6 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	flee_enter_area.body_entered.connect(_on_player_entered)
 	flee_enter_area.body_exited.connect(_on_player_exited)
-	#collision_shape_2d
 
 func _physics_process(delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide(velocity*delta)
@@ -72,7 +71,7 @@ func spit() -> void:
 	spit.rotation = rotation
 	spit.direction = Vector2(1,0).rotated(rotation)
 	spit.spit_speed = spit_speed
-	spit.global_position = global_position
+	spit.global_position = global_position + spit.direction * 70
 	Events.llama_spit.emit(spit)
 
 func _on_player_entered(body: Node2D) -> void: 
@@ -85,7 +84,6 @@ func _on_player_exited(body: Node2D) -> void:
 
 func llama_grabbed() -> void:
 	state_machine.on_outside_transition("caught")
-	print("llama grabbed!!!")
 
 func llama_released() -> void:
 	state_machine.on_outside_transition("flung")
