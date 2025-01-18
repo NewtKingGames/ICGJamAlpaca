@@ -18,3 +18,5 @@ debug_color = Color(0.514463, 0.53489, 0.591865, 0.42)
 
 [node name="PenFront" type="Marker2D" parent="."]
 position = Vector2(29, 0)
+
+[node name="PenCenter" type="Marker2D" parent="."]

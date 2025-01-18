@@ -26,7 +26,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
-	#look_at()
+	if velocity != Vector2.ZERO:
+		# Rotate the llama in the correct direction
+		rotation = lerpf(rotation, velocity.angle(), delta)
 
 func get_vector_to_player() -> Vector2:
 	print(global_position.direction_to(player.global_position))
@@ -47,11 +49,10 @@ func spit() -> void:
 	var spit: LlamaSpit = SPIT_SCENE.instantiate() as LlamaSpit
 	spit.rotation = rotation
 	spit.direction = Vector2(1,0).rotated(rotation)
-	#spit.direction = Vector2(0, 1).rotated(rotation)
 	spit.spit_speed = spit_speed
 	spit.global_position = global_position
 	Events.llama_spit.emit(spit)
-	#add_child(spit)
+
 
 func _on_player_entered(body: Node2D) -> void: 
 	if body is Player and not penned:

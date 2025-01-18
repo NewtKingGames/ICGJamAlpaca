@@ -6,7 +6,7 @@ var time_to_idle: float
 
 func Enter() -> void:
 	direction = Vector2(Utils.get_one_or_negative_one(), Utils.get_one_or_negative_one())
-	llama_character.rotation = direction.angle()
+	#llama_character.rotation = direction.angle()
 	time_to_idle = randf_range(2, 4)
 
 func Physics_Update(delta: float) -> void:
