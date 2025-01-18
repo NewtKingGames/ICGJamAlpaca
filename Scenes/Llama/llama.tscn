@@ -16,6 +16,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxlr7"]
 
 [node name="Llama" type="CharacterBody2D" groups=["llamas"]]
+collision_layer = 2
+collision_mask = 31
 motion_mode = 1
 script = ExtResource("1_7h8ci")
 

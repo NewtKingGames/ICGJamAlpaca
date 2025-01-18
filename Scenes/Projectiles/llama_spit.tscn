@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnyleyndxggli"]
+[gd_scene load_steps=8 format=3 uid="uid://dnyleyndxggli"]
 
 [ext_resource type="Texture2D" uid="uid://br787brrx6chu" path="res://Art/16x16 Mage 2 attacks.png" id="1_g53g5"]
+[ext_resource type="Script" path="res://Scenes/Projectiles/llama_spit.gd" id="1_pbnek"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_payra"]
 
@@ -34,11 +35,19 @@ animations = [{
 }]
 
 [node name="LlamaSpit" type="Node2D"]
+top_level = true
+script = ExtResource("1_pbnek")
 
 [node name="Area2D" type="Area2D" parent="."]
+rotation = 1.5708
+collision_layer = 64
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_payra")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_jjd51")
+autoplay = "default"
+frame_progress = 0.375999
