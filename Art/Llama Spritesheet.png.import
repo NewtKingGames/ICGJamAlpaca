@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rejhlctdil8c"
-path="res://.godot/imported/PathShrunk.png-ba157184b21bf91aea15e3a174cb0f0f.ctex"
+uid="uid://xdmt0etye5xy"
+path="res://.godot/imported/Llama Spritesheet.png-74ecee3a57409e373598a93528117c7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PathShrunk.png"
-dest_files=["res://.godot/imported/PathShrunk.png-ba157184b21bf91aea15e3a174cb0f0f.ctex"]
+source_file="res://Art/Llama Spritesheet.png"
+dest_files=["res://.godot/imported/Llama Spritesheet.png-74ecee3a57409e373598a93528117c7a.ctex"]
 
 [params]
 
