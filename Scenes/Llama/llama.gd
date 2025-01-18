@@ -19,6 +19,8 @@ var current_pen: Pen = null
 var player: Player
 
 @onready var state_machine: StateMachine = $StateMachine
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -54,7 +56,6 @@ func spit() -> void:
 	spit.global_position = global_position
 	Events.llama_spit.emit(spit)
 
-
 func _on_player_entered(body: Node2D) -> void: 
 	if body is Player and not penned:
 		state_machine.on_outside_transition("flee")
@@ -62,3 +63,12 @@ func _on_player_entered(body: Node2D) -> void:
 func _on_player_exited(body: Node2D) -> void:
 	if body is Player and not penned:
 		state_machine.on_outside_transition("idle")
+
+func llama_grabbed() -> void:
+	state_machine.on_outside_transition("caught")
+
+func disable_collisions() -> void:
+	collision_shape_2d.disabled = true
+
+func enable_collisions() -> void:
+	collision_shape_2d.disabled = false
