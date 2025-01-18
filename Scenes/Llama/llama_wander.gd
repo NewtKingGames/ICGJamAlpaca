@@ -5,7 +5,12 @@ var direction: Vector2
 var time_to_idle: float
 
 func Enter() -> void:
-	direction = Vector2(Utils.get_one_or_negative_one(), Utils.get_one_or_negative_one())
+	var first_number: int = randi_range(0, 1)
+	# Sets the second number to either 1 or 0 depending on what first number
+	var second_number: int = first_number + 1 % 2
+	direction = Vector2(first_number, second_number)
+	print("direction is")
+	print(direction)
 	#llama_character.rotation = direction.angle()
 	time_to_idle = randf_range(1, 2.8)
 

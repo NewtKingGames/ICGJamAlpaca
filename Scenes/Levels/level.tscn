@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvvbf06qty7h0"]
+[gd_scene load_steps=8 format=3 uid="uid://cvvbf06qty7h0"]
 
+[ext_resource type="PackedScene" uid="uid://b0puoas2qdjsd" path="res://Scenes/UI/player_ui.tscn" id="1_icvwf"]
 [ext_resource type="PackedScene" uid="uid://c0wwu5nyfgk82" path="res://Scenes/Player/player.tscn" id="1_snsqa"]
 [ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="2_n6vwf"]
 [ext_resource type="PackedScene" uid="uid://vbbkotngx65d" path="res://Scenes/Objects/pen.tscn" id="3_txefw"]
@@ -14,6 +15,8 @@ point_count = 7
 
 [node name="Level" type="Node2D"]
 
+[node name="PlayerUI" parent="." instance=ExtResource("1_icvwf")]
+
 [node name="Player" parent="." instance=ExtResource("1_snsqa")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -24,7 +27,8 @@ position = Vector2(-514, 344)
 
 [node name="Llama2" parent="." instance=ExtResource("2_n6vwf")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(-331, -299)
+position = Vector2(65, -370)
+rotation = 1.57079
 
 [node name="Pen" parent="." instance=ExtResource("3_txefw")]
 position = Vector2(-791, 153)
@@ -32,14 +36,15 @@ rotation = -1.57079
 scale = Vector2(3.36036, 3.36036)
 
 [node name="Pen2" parent="." instance=ExtResource("3_txefw")]
-position = Vector2(431, -188)
+position = Vector2(59, -158)
+rotation = 1.57079
 scale = Vector2(3.36036, 3.36036)
 
 [node name="Projectiles" type="Node" parent="."]
 script = ExtResource("5_8pb4v")
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-32, 18)
+position = Vector2(85, 8)
 curve = SubResource("Curve2D_e31hq")
 
 [node name="Enemy" parent="Path2D" instance=ExtResource("5_345mo")]

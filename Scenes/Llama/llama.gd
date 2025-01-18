@@ -8,7 +8,8 @@ var SPIT_SCENE: PackedScene = preload("res://Scenes/Projectiles/llama_spit.tscn"
 
 @export var wander_speed: float = 60.0
 @export var flee_speed: float = 120.0
-@export var pen_time: float = 12.0
+@export var pen_enter_speed: float = 240.0 
+@export var pen_time: float = 40
 @export var spit_rate: float = 1.0
 @export var spit_speed: float = 120.0
 
@@ -28,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if velocity != Vector2.ZERO:
 		# Rotate the llama in the correct direction
-		rotation = lerpf(rotation, velocity.angle(), delta)
+		rotation = lerpf(rotation, velocity.angle(), delta*2)
 
 func get_vector_to_player() -> Vector2:
 	print(global_position.direction_to(player.global_position))

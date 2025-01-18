@@ -8,7 +8,6 @@ var moving: bool = true
 
 func Enter() -> void:
 	moving = true
-	llama_character.spit()
 	time_waiting_to_shoot = 0.0
 	llama_character.velocity = Vector2.ZERO
 	llama_character.penned = true
@@ -20,8 +19,8 @@ func Exit() -> void:
 
 
 func Physics_Update(delta: float) -> void:
-	if llama_character.global_position.distance_to(position_to_walk_in_pen) > 1 and moving:
-		llama_character.velocity = llama_character.global_position.direction_to(position_to_walk_in_pen)*llama_character.wander_speed	
+	if llama_character.global_position.distance_to(position_to_walk_in_pen) > 10 and moving:
+		llama_character.velocity = llama_character.global_position.direction_to(position_to_walk_in_pen)*llama_character.pen_enter_speed
 	else:
 		llama_character.velocity = Vector2.ZERO
 		llama_character.look_at(llama_character.current_pen.get_pen_front_position())

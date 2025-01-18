@@ -18,5 +18,5 @@ func _on_body_entered(body: Node2D) -> void:
 		print("hit player!")
 	else:
 		print("about to hit body")
-		body.hit(4) # TODO - include damage!!!!
+		body.hit(3) # TODO - include damage!!!!
 	queue_free()

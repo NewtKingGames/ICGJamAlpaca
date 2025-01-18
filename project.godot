@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Utils="*res://Globals/utils.gd"
 Events="*res://Globals/events.gd"
+Globals="*res://Globals/globals.gd"
 
 [display]
 
