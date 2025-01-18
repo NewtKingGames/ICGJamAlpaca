@@ -15,6 +15,7 @@ var SPIT_SCENE: PackedScene = preload("res://Scenes/Projectiles/llama_spit.tscn"
 @export var spit_speed: float = 120.0
 
 var flung: bool = false
+var held: bool = false
 var penned: bool = false
 var current_pen: Pen = null
 
@@ -32,6 +33,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide(velocity*delta)
+	if collision:
+		print(collision)
+		var collider = collision.get_collider()
+		if collider is EnemyBody:
+			collider.hit(100)
 	if velocity != Vector2.ZERO:
 		# Rotate the llama in the correct direction
 		rotation = lerpf(rotation, velocity.angle(), delta*2)
@@ -47,9 +53,10 @@ func get_vector_away_from_player() -> Vector2:
 	return player.global_position.direction_to(global_position)
 
 func pen(pen: Pen) -> void:
-	penned = true
-	current_pen = pen
-	state_machine.on_outside_transition("penned")
+	if not held and not penned:
+		penned = true
+		current_pen = pen
+		state_machine.on_outside_transition("penned")
 
 func spit() -> void:
 	var spit: LlamaSpit = SPIT_SCENE.instantiate() as LlamaSpit
