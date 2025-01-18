@@ -5,3 +5,6 @@ class_name EnemyBody
 
 func hit(damage: int) -> void:
 	enemy.hit(damage)
+
+func get_enemy() -> Enemy:
+	return enemy

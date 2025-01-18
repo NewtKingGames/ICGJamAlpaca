@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cssd75r07jo21"]
+
+[ext_resource type="Script" path="res://Scenes/Areas/base_area.gd" id="1_7vyyl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vkfg"]
+
+[node name="BaseArea" type="Area2D"]
+collision_layer = 64
+collision_mask = 4
+script = ExtResource("1_7vyyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.92451, 1.92451)
+shape = SubResource("CircleShape2D_4vkfg")

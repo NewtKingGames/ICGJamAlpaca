@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0puoas2qdjsd"]
+[gd_scene load_steps=7 format=3 uid="uid://b0puoas2qdjsd"]
 
 [ext_resource type="Script" path="res://Scenes/UI/player_ui.gd" id="1_4n5bs"]
 [ext_resource type="FontFile" uid="uid://db1x3mqci3obb" path="res://Fonts/PixelOperator8-Bold.ttf" id="2_0r3if"]
 [ext_resource type="Texture2D" uid="uid://ckltelgb0xuun" path="res://Art/dead_slime.png" id="2_no4wc"]
+[ext_resource type="Texture2D" uid="uid://ceh1y4k4vd3mn" path="res://Art/mario-castle.png" id="4_1c7lj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqv0p"]
 bg_color = Color(0.670588, 0.533333, 0.878431, 0.443137)
@@ -11,6 +12,14 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35ohk"]
+bg_color = Color(0.217575, 0.663438, 0.438183, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.225453, 0.498494, 0.301567, 1)
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_4n5bs")
@@ -61,15 +70,20 @@ stretch_mode = 3
 
 [node name="BaseHealthCounter" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -158.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = -118.0
+grow_vertical = 0
+scale = Vector2(4, 4)
 
 [node name="Panel" type="Panel" parent="BaseHealthCounter"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qqv0p")
+theme_override_styles/panel = SubResource("StyleBoxFlat_35ohk")
 
 [node name="ColorRect" type="ColorRect" parent="BaseHealthCounter"]
 visible = false
@@ -79,22 +93,25 @@ offset_bottom = 40.0
 scale = Vector2(1, 1.16)
 color = Color(0.415686, 0.254902, 0.490196, 0.537255)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BaseHealthCounter"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-alignment = 1
-
-[node name="BaseHealthLabel" type="Label" parent="BaseHealthCounter/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="BaseHealthCounter"]
 layout_mode = 2
+offset_left = 10.0
+offset_top = 20.25
+offset_right = 50.0
+offset_bottom = 60.25
+scale = Vector2(0.477376, 0.477376)
+texture = ExtResource("4_1c7lj")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="BaseHealthLabel" type="Label" parent="BaseHealthCounter"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 18.0
 theme_override_fonts/font = ExtResource("2_0r3if")
 text = "0"
 horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="BaseHealthCounter/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_no4wc")
-stretch_mode = 3
 
 [node name="GameTimerCounter" type="Control" parent="."]
 layout_mode = 3
