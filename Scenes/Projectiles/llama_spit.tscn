@@ -50,4 +50,4 @@ shape = SubResource("CapsuleShape2D_payra")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_jjd51")
 autoplay = "default"
-frame_progress = 0.867965
+frame_progress = 0.959478

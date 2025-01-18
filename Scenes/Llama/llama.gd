@@ -5,7 +5,6 @@ extends CharacterBody2D
 
 var SPIT_SCENE: PackedScene = preload("res://Scenes/Projectiles/llama_spit.tscn")
 
-
 @export var wander_speed: float = 60.0
 @export var flee_speed: float = 120.0
 @export var flung_max_speed: float = 900.0
@@ -24,6 +23,7 @@ var player: Player
 @onready var state_machine: StateMachine = $StateMachine
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+var time_waiting_to_shoot: float = 0
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -34,13 +34,22 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide(velocity*delta)
 	if collision:
-		print(collision)
 		var collider = collision.get_collider()
 		if collider is EnemyBody:
 			collider.hit(100)
 	if velocity != Vector2.ZERO:
 		# Rotate the llama in the correct direction
 		rotation = lerpf(rotation, velocity.angle(), delta*2)
+		
+	# Calculate time until next spit attack
+	if penned or held:
+		print("time should be going up")
+		time_waiting_to_shoot += delta
+		if time_waiting_to_shoot >= spit_rate:
+			spit()
+			time_waiting_to_shoot=0.0
+	else:
+		time_waiting_to_shoot = 0.0
 
 func get_vector_to_player() -> Vector2:
 	print(global_position.direction_to(player.global_position))

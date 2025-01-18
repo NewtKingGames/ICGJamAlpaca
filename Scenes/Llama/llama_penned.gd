@@ -25,7 +25,7 @@ func Physics_Update(delta: float) -> void:
 		llama_character.velocity = Vector2.ZERO
 		llama_character.look_at(llama_character.current_pen.get_pen_front_position())
 		moving = false
-		time_waiting_to_shoot += delta
-		if time_waiting_to_shoot >= llama_character.spit_rate:
-			llama_character.spit()
-			time_waiting_to_shoot=0.0
+		#time_waiting_to_shoot += delta
+		#if time_waiting_to_shoot >= llama_character.spit_rate:
+			#llama_character.spit()
+			#time_waiting_to_shoot=0.0
