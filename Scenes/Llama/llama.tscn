@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhtypwovh50vr"]
+
+[ext_resource type="Script" path="res://Scenes/Llama/llama.gd" id="1_7h8ci"]
+[ext_resource type="Script" path="res://Scripts/States/state_machine.gd" id="1_mb2rl"]
+[ext_resource type="Script" path="res://Scenes/Llama/llama_idle.gd" id="2_wgeyf"]
+[ext_resource type="Script" path="res://Scenes/Llama/llama_wander.gd" id="3_evbmu"]
+[ext_resource type="Script" path="res://Scenes/Llama/llama_flee.gd" id="4_mqi7g"]
+[ext_resource type="Script" path="res://Scenes/Llama/llama_caught.gd" id="5_fcvlx"]
+[ext_resource type="Script" path="res://Scenes/Llama/llama_flung.gd" id="6_16n04"]
+[ext_resource type="Script" path="res://Scenes/Llama/llama_penned.gd" id="7_luyet"]
+[ext_resource type="Texture2D" uid="uid://t362frlrfgvg" path="res://icon.svg" id="9_tx2km"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4dn5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxlr7"]
+
+[node name="Llama" type="CharacterBody2D" groups=["llamas"]]
+motion_mode = 1
+script = ExtResource("1_7h8ci")
+wander_speed = null
+flee_speed = null
+pen_time = null
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_mb2rl")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("2_wgeyf")
+
+[node name="Wander" type="Node" parent="StateMachine"]
+script = ExtResource("3_evbmu")
+
+[node name="Flee" type="Node" parent="StateMachine"]
+script = ExtResource("4_mqi7g")
+
+[node name="Caught" type="Node" parent="StateMachine"]
+script = ExtResource("5_fcvlx")
+
+[node name="Flung" type="Node" parent="StateMachine"]
+script = ExtResource("6_16n04")
+
+[node name="Penned" type="Node" parent="StateMachine"]
+script = ExtResource("7_luyet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.57079
+scale = Vector2(2.56301, 6.44912)
+shape = SubResource("RectangleShape2D_d4dn5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.57079
+scale = Vector2(0.496205, 1.04533)
+texture = ExtResource("9_tx2km")
+
+[node name="FleeEnterArea" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FleeEnterArea"]
+scale = Vector2(22.5752, 22.5752)
+shape = SubResource("CircleShape2D_rxlr7")
+debug_color = Color(0.22759, 0.614468, 0.492643, 0.42)
+
+[node name="FleeExitArea" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FleeExitArea"]
+scale = Vector2(30.867, 30.867)
+shape = SubResource("CircleShape2D_rxlr7")
+debug_color = Color(0.781979, 0.381088, 0.558671, 0.42)

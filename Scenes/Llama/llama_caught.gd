@@ -1,0 +1,2 @@
+class_name LlamaCaught
+extends LlamaState
