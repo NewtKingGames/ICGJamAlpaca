@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		update_held_llama_position()
 		look_at(get_global_mouse_position())
 		if Input.is_action_just_released("mouse_click"):
-			print("release the llama!")
+			release_held_llama()
 
 func _on_llama_collision(body: Node2D) -> void:
 	print("detected")
@@ -45,6 +45,10 @@ func charge_held_llama() -> void:
 	print("do nothing for now")
 
 func release_held_llama() -> void:
+	# Put llama in released state
+	held_llama.global_position = llama_throwing_position.global_position
+	held_llama.rotation = rotation
+	held_llama.llama_released()
 	held_llama = null
 
 func update_held_llama_position() -> void:
