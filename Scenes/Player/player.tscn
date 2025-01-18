@@ -25,7 +25,7 @@ shape = SubResource("RectangleShape2D_7i13k")
 position = Vector2(-2, 62)
 
 [node name="LlamaThrowingPosition" type="Marker2D" parent="."]
-position = Vector2(117, 0)
+position = Vector2(183, 0)
 
 [node name="LlamaGrabArea" type="Area2D" parent="."]
 collision_layer = 64

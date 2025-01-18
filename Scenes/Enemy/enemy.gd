@@ -6,6 +6,7 @@ extends PathFollow2D
 @export var health: int = 1 :
 	set(value):
 		if health > 0 and value < 0:
+			Events.enemy_killed.emit()
 			die()
 		elif health > 0 and value > 0:
 			sprite_2d.play("damage")
@@ -25,7 +26,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	progress_ratio += movement_speed* delta
 
-
 func hit(damage: int) -> void:
 	sprite_2d.material.set_shader_parameter("progress",1)
 	invunlerabilty_timer.start()
@@ -38,6 +38,5 @@ func die() -> void:
 	Events.enemy_died.emit()
 	collision_shape_2d.disabled = true
 	sprite_2d.play("death")
-	print("should be dying")
 	await sprite_2d.animation_finished
 	queue_free()

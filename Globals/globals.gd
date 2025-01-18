@@ -11,8 +11,8 @@ var base_health: int = 30 :
 		total_base_health.emit(base_health)
 
 func _ready() -> void:
-	Events.enemy_died.connect(_on_enemy_died)
+	Events.enemy_killed.connect(_on_enemy_killed)
 
-func _on_enemy_died() -> void:
+func _on_enemy_killed() -> void:
 	enemies_killed += 1
 	total_killed_enemies.emit(enemies_killed)

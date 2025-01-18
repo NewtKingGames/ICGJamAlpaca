@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvvbf06qty7h0"]
+[gd_scene load_steps=13 format=3 uid="uid://cvvbf06qty7h0"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_fo8oa"]
 [ext_resource type="PackedScene" uid="uid://b0puoas2qdjsd" path="res://Scenes/UI/player_ui.tscn" id="1_icvwf"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="2_n6vwf"]
 [ext_resource type="PackedScene" uid="uid://vbbkotngx65d" path="res://Scenes/Objects/pen.tscn" id="3_txefw"]
 [ext_resource type="Script" path="res://Scenes/Levels/projectiles.gd" id="5_8pb4v"]
-[ext_resource type="PackedScene" uid="uid://cltt3duqip6jn" path="res://Scenes/Enemy/enemy.tscn" id="5_345mo"]
 [ext_resource type="Texture2D" uid="uid://yk3smkc8uew5" path="res://Art/Paths Spritesheet.png" id="7_l830a"]
 [ext_resource type="PackedScene" uid="uid://cssd75r07jo21" path="res://Scenes/Areas/base_area.tscn" id="9_ld2s4"]
 
@@ -21549,6 +21548,8 @@ point_count = 7
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_fo8oa")
+total_number_of_enemies_to_spawn = 4
+spawn_delay = 3.0
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(405, 0)
@@ -21590,10 +21591,6 @@ script = ExtResource("5_8pb4v")
 position = Vector2(48, -191)
 curve = SubResource("Curve2D_e31hq")
 
-[node name="Enemy" parent="Path2D" instance=ExtResource("5_345mo")]
-position = Vector2(-876, -436)
-rotation = 1.56684
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-2, -773)
 scale = Vector2(137.834, 3.88304)
@@ -21633,5 +21630,5 @@ collision_mask = 39
 shape = SubResource("RectangleShape2D_2b7y5")
 
 [node name="BaseArea" parent="." instance=ExtResource("9_ld2s4")]
-position = Vector2(743, -685)
+position = Vector2(-866, -367)
 scale = Vector2(-7.7673, 7.41056)
