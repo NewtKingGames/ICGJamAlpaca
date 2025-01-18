@@ -13,6 +13,7 @@ var SPIT_SCENE: PackedScene = preload("res://Scenes/Projectiles/llama_spit.tscn"
 @export var spit_rate: float = 1.0
 @export var spit_speed: float = 120.0
 
+
 var flung: bool = false
 var held: bool = false
 var penned: bool = false
@@ -43,7 +44,6 @@ func _physics_process(delta: float) -> void:
 		
 	# Calculate time until next spit attack
 	if penned or held:
-		print("time should be going up")
 		time_waiting_to_shoot += delta
 		if time_waiting_to_shoot >= spit_rate:
 			spit()
@@ -85,6 +85,7 @@ func _on_player_exited(body: Node2D) -> void:
 
 func llama_grabbed() -> void:
 	state_machine.on_outside_transition("caught")
+	print("llama grabbed!!!")
 
 func llama_released() -> void:
 	state_machine.on_outside_transition("flung")

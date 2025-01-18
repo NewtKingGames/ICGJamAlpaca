@@ -6,6 +6,7 @@ var current_state : State
 # Dictionary of states, keyed by the state node name
 var states : Dictionary = {}
 var input_enabled: bool = true
+@onready var state_label: Label = $"../StateLabel"
 
 func _ready():
 	for child in get_children():
@@ -45,6 +46,7 @@ func on_child_transition(state: State, new_state_name: String):
 
 	new_state.Enter()
 	current_state = new_state
+	state_label.text = new_state_name
 
 # Special transition for state changes from outside the characters control like damage
 func on_outside_transition(new_state_name: String):
@@ -59,3 +61,4 @@ func on_outside_transition(new_state_name: String):
 
 	new_state.Enter()
 	current_state = new_state
+	state_label.text = new_state_name

@@ -72,3 +72,9 @@ collision_layer = 64
 scale = Vector2(30.867, 30.867)
 shape = SubResource("CircleShape2D_rxlr7")
 debug_color = Color(0.781979, 0.381088, 0.558671, 0.42)
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -58.0
+offset_right = 22.0
+offset_bottom = -35.0

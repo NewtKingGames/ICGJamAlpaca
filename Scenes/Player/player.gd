@@ -40,6 +40,7 @@ func hold_llama(llama: Llama) -> void:
 		print("already holding llama!")
 		return
 	held_llama = llama
+	held_llama.llama_grabbed()
 
 func charge_held_llama() -> void:
 	print("do nothing for now")
