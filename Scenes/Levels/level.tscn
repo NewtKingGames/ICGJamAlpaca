@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvvbf06qty7h0"]
+[gd_scene load_steps=7 format=3 uid="uid://cvvbf06qty7h0"]
 
 [ext_resource type="PackedScene" uid="uid://c0wwu5nyfgk82" path="res://Scenes/Player/player.tscn" id="1_snsqa"]
 [ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="2_n6vwf"]
 [ext_resource type="PackedScene" uid="uid://vbbkotngx65d" path="res://Scenes/Objects/pen.tscn" id="3_txefw"]
 [ext_resource type="Script" path="res://Scenes/Levels/projectiles.gd" id="5_8pb4v"]
+[ext_resource type="PackedScene" uid="uid://cltt3duqip6jn" path="res://Scenes/Enemy/enemy.tscn" id="5_345mo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3pic"]
-size = Vector2(121, 20)
+[sub_resource type="Curve2D" id="Curve2D_e31hq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -876, -436, 0, 0, 0, 0, -877, -21, 0, 0, 0, 0, -374, -19, 0, 0, 0, 0, 98, -15, -41.9526, -13.4848, 41.9526, 13.4848, 123, 363, 0, 0, 0, 0, 708, -15, 0, 0, 0, 0, 721, -551)
+}
+point_count = 7
 
 [node name="Level" type="Node2D"]
 
@@ -16,42 +20,28 @@ size = Vector2(121, 20)
 
 [node name="Llama" parent="." instance=ExtResource("2_n6vwf")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(285, 71)
+position = Vector2(-514, 344)
+
+[node name="Llama2" parent="." instance=ExtResource("2_n6vwf")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-331, -299)
 
 [node name="Pen" parent="." instance=ExtResource("3_txefw")]
-position = Vector2(326, -420)
+position = Vector2(-791, 153)
 rotation = -1.57079
+scale = Vector2(3.36036, 3.36036)
+
+[node name="Pen2" parent="." instance=ExtResource("3_txefw")]
+position = Vector2(431, -188)
 scale = Vector2(3.36036, 3.36036)
 
 [node name="Projectiles" type="Node" parent="."]
 script = ExtResource("5_8pb4v")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(679, -304)
-collision_layer = 8
-collision_mask = 63
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-32, 18)
+curve = SubResource("Curve2D_e31hq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(50.5, 0)
-scale = Vector2(3.3955, 4.80724)
-shape = SubResource("RectangleShape2D_d3pic")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(679, 121)
-collision_mask = 63
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(50.5, 0)
-scale = Vector2(3.3955, 4.80724)
-shape = SubResource("RectangleShape2D_d3pic")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(886, -3.05176e-05)
-rotation = 1.57079
-scale = Vector2(2.24, 1)
-collision_mask = 31
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(50.5, 0)
-scale = Vector2(3.3955, 4.80724)
-shape = SubResource("RectangleShape2D_d3pic")
+[node name="Enemy" parent="Path2D" instance=ExtResource("5_345mo")]
+position = Vector2(-876, -436)
+rotation = 1.57321

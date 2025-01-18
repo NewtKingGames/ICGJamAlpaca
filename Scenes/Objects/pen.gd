@@ -9,10 +9,16 @@ var penned_llama: Llama = null
 
 func _ready() -> void:
 	area_2d.body_entered.connect(_on_llama_entered)
+	area_2d.body_exited.connect(_on_llama_exited)
 
 func _on_llama_entered(body: Node2D) -> void:
-	if body is Llama:
+	if body is Llama and penned_llama == null:
 		pen_llama(body)
+
+func _on_llama_exited(body: Node2D) -> void:
+	if body is Llama and body == penned_llama:
+		#Unpen lama
+		penned_llama = null
 
 func pen_llama(llama: Llama) -> void:
 	penned_llama = llama

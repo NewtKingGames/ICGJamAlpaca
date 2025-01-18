@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cltt3duqip6jn"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy/enemy.gd" id="1_vuf7a"]
+[ext_resource type="Shader" path="res://Scenes/Enemy/enemy.gdshader" id="2_3jpls"]
+[ext_resource type="Texture2D" uid="uid://dstoqpx8awqa3" path="res://Art/IMG_0081.png" id="2_eoxfm"]
+[ext_resource type="Script" path="res://Scenes/Enemy/CharacterBody2D.gd" id="4_l38il"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_co5fp"]
+shader = ExtResource("2_3jpls")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/progress = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_apt6x"]
+
+[node name="Enemy" type="PathFollow2D"]
+script = ExtResource("1_vuf7a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_co5fp")
+position = Vector2(0, -18)
+scale = Vector2(5, 5)
+texture = ExtResource("2_eoxfm")
+hframes = 8
+vframes = 4
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(3.4744, 3.4744)
+collision_layer = 4
+collision_mask = 96
+script = ExtResource("4_l38il")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_apt6x")
+
+[node name="InvunlerabiltyTimer" type="Timer" parent="."]
+wait_time = 0.2

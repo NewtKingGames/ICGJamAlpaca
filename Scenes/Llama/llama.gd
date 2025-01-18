@@ -6,11 +6,11 @@ extends CharacterBody2D
 var SPIT_SCENE: PackedScene = preload("res://Scenes/Projectiles/llama_spit.tscn")
 
 
-@export var wander_speed: float = 100.0
+@export var wander_speed: float = 60.0
 @export var flee_speed: float = 120.0
-@export var pen_time: float = 10.0
-@export var spit_rate: float = 3.0
-@export var spit_speed: float = 60.0
+@export var pen_time: float = 12.0
+@export var spit_rate: float = 1.0
+@export var spit_speed: float = 120.0
 
 var penned: bool = false
 var current_pen: Pen = null
