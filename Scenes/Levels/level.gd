@@ -19,6 +19,10 @@ func _ready() -> void:
 	Events.enemy_died.connect(_on_enemy_died)
 	spawn_enemy_and_schedule_next_if_can_spawn()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset_level"):
+		get_tree().reload_current_scene()
+
 func spawn_enemy_and_schedule_next_if_can_spawn() -> void:
 	spawn_enemy()
 	if total_enemies_spawned < total_number_of_enemies_to_spawn:

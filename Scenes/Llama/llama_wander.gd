@@ -3,12 +3,11 @@ extends LlamaState
 
 var direction: Vector2
 var time_to_idle: float
+var wander_directions: Array[Vector2] = [Vector2.UP, Vector2.LEFT, Vector2.RIGHT, Vector2.DOWN]
+
 
 func Enter() -> void:
-	var first_number: int = randi_range(0, 1)
-	# Sets the second number to either 1 or 0 depending on what first number
-	var second_number: int = first_number + 1 % 2
-	direction = Vector2(first_number, second_number)
+	direction = wander_directions[randi_range(0, 3)]
 	print("direction is")
 	print(direction)
 	#llama_character.rotation = direction.angle()

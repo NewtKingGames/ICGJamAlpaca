@@ -22090,13 +22090,10 @@ layer_0/tile_data = PackedInt32Array(-3276862, 131073, 1, -2424904, 131073, 1, -
 zoom = Vector2(0.7, 0.7)
 
 [node name="Llama" parent="." instance=ExtResource("2_n6vwf")]
-modulate = Color(1, 1, 0, 1)
 position = Vector2(-514, 344)
 
 [node name="Llama2" parent="." instance=ExtResource("2_n6vwf")]
-modulate = Color(1, 1, 0, 1)
 position = Vector2(76, -607)
-rotation = 1.57079
 
 [node name="Pen" parent="." instance=ExtResource("3_txefw")]
 position = Vector2(-791, 153)

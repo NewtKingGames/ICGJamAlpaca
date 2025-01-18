@@ -14,6 +14,10 @@ var SPIT_SCENE: PackedScene = preload("res://Scenes/Projectiles/llama_spit.tscn"
 @export var spit_speed: float = 240.0
 
 
+@onready var sprite_2d: AnimatedSprite2D = $VisibleNodes/Sprite2D
+
+
+
 var flung: bool = false
 var held: bool = false
 var penned: bool = false
@@ -23,8 +27,13 @@ var player: Player
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var visible_nodes: Node2D = $VisibleNodes
+
 
 var time_waiting_to_shoot: float = 0
+
+# have to track when the enemy flipped rather than setting the scale to -x everytime
+var previous_velocity: Vector2 = Vector2(1,0)
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -32,14 +41,24 @@ func _ready() -> void:
 	flee_enter_area.body_exited.connect(_on_player_exited)
 
 func _physics_process(delta: float) -> void:
+	# Control flipping of sprite
+	if velocity.x > 0 and previous_velocity.x < 0:
+		visible_nodes.scale.x = 1
+	if velocity.x < 0 and previous_velocity.x > 0:
+		visible_nodes.scale.x = -1
+	
+	# only set previous velocity to nonzero x values
+	if velocity.x != 0:
+		previous_velocity = velocity
+	
 	var collision: KinematicCollision2D = move_and_collide(velocity*delta)
 	if collision:
 		var collider = collision.get_collider()
 		if collider is EnemyBody:
 			collider.hit(100)
-	if velocity != Vector2.ZERO:
-		# Rotate the llama in the correct direction
-		rotation = lerpf(rotation, velocity.angle(), delta*2)
+	#if velocity != Vector2.ZERO:
+		## Rotate the llama in the correct direction
+		#rotation = lerpf(rotation, velocity.angle(), delta*2)
 		
 	# Calculate time until next spit attack
 	if penned or held:
@@ -49,6 +68,24 @@ func _physics_process(delta: float) -> void:
 			time_waiting_to_shoot=0.0
 	else:
 		time_waiting_to_shoot = 0.0
+		
+	# Basic animation controller
+	# First we'll do if moving
+	if velocity.x != 0:
+		sprite_2d.play("walk_side")
+	elif velocity.y > 0:
+		sprite_2d.play("walk_down")
+	elif  velocity.y < 0:
+		sprite_2d.play("walk_up")
+	if velocity == Vector2.ZERO:
+		var current_animation:String = sprite_2d.animation
+		if current_animation == "walk_side":
+			sprite_2d.play("idle_side")
+		if current_animation == "walk_down":
+			sprite_2d.play("idle_down")
+		if current_animation == "walk_up":
+			sprite_2d.play("idle_up")
+	# Then we'll do if not moving
 
 func get_vector_to_player() -> Vector2:
 	print(global_position.direction_to(player.global_position))
