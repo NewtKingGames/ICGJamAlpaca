@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhtypwovh50vr"]
+[gd_scene load_steps=13 format=3 uid="uid://dhtypwovh50vr"]
 
 [ext_resource type="Script" path="res://Scenes/Llama/llama.gd" id="1_7h8ci"]
 [ext_resource type="Script" path="res://Scripts/States/state_machine.gd" id="1_mb2rl"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/Llama/llama_caught.gd" id="5_fcvlx"]
 [ext_resource type="Script" path="res://Scenes/Llama/llama_flung.gd" id="6_16n04"]
 [ext_resource type="Script" path="res://Scenes/Llama/llama_penned.gd" id="7_luyet"]
+[ext_resource type="Script" path="res://Scenes/Llama/exit_pen.gd" id="9_85bgn"]
 [ext_resource type="Texture2D" uid="uid://t362frlrfgvg" path="res://icon.svg" id="9_tx2km"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4dn5"]
@@ -17,9 +18,6 @@
 [node name="Llama" type="CharacterBody2D" groups=["llamas"]]
 motion_mode = 1
 script = ExtResource("1_7h8ci")
-wander_speed = null
-flee_speed = null
-pen_time = null
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_mb2rl")
@@ -42,6 +40,9 @@ script = ExtResource("6_16n04")
 
 [node name="Penned" type="Node" parent="StateMachine"]
 script = ExtResource("7_luyet")
+
+[node name="ExitPen" type="Node" parent="StateMachine"]
+script = ExtResource("9_85bgn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.57079

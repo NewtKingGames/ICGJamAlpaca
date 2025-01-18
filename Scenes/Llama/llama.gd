@@ -33,7 +33,6 @@ func get_position_away_from_player() -> Vector2:
 
 func get_vector_away_from_player() -> Vector2:
 	return player.global_position.direction_to(global_position)
-	
 
 func pen(pen: Pen) -> void:
 	penned = true

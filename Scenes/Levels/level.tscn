@@ -15,5 +15,6 @@ modulate = Color(1, 1, 0, 1)
 position = Vector2(285, 71)
 
 [node name="Pen" parent="." instance=ExtResource("3_txefw")]
-position = Vector2(715, 71)
+position = Vector2(326, -420)
+rotation = -1.57079
 scale = Vector2(3.36036, 3.36036)

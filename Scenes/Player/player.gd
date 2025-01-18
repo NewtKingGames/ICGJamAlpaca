@@ -11,4 +11,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * player_walk_speed
+	if velocity == Vector2.ZERO:
+		look_at(get_global_mouse_position())
+	else:
+		look_at(direction + global_position)
 	move_and_slide()

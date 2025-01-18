@@ -13,3 +13,6 @@ scale = Vector2(2.87312, 2.87312)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_1k2vl")
 debug_color = Color(0.514463, 0.53489, 0.591865, 0.42)
+
+[node name="PenFront" type="Marker2D" parent="."]
+position = Vector2(29, 0)

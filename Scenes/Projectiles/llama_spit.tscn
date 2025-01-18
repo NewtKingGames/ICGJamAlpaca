@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnyleyndxggli"]
+
+[ext_resource type="Texture2D" uid="uid://br787brrx6chu" path="res://Art/16x16 Mage 2 attacks.png" id="1_g53g5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_payra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww8cc"]
+atlas = ExtResource("1_g53g5")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2660s"]
+atlas = ExtResource("1_g53g5")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfwjd"]
+atlas = ExtResource("1_g53g5")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jjd51"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww8cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2660s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfwjd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="LlamaSpit" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_payra")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jjd51")

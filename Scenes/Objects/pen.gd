@@ -15,3 +15,8 @@ func _on_llama_entered(body: Node2D) -> void:
 func pen_llama(llama: Llama) -> void:
 	penned_llama = llama
 	penned_llama.pen(self)
+
+func get_llama_exit_position() -> Vector2:
+	print("moving the llama to")
+	print($PenFront.global_position + Vector2.LEFT.rotated(rotation).normalized()*600)
+	return $PenFront.global_position + Vector2.LEFT.rotated(rotation).normalized()*600

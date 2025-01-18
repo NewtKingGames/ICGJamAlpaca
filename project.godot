@@ -61,3 +61,7 @@ right={
 2d_physics/layer_5="border"
 2d_physics/layer_6="spit"
 2d_physics/layer_7="areas"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

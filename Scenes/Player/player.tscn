@@ -10,6 +10,7 @@ motion_mode = 1
 script = ExtResource("1_igo0k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.57079
 texture = ExtResource("1_oyuok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
