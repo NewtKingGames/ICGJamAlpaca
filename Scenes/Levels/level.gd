@@ -9,6 +9,7 @@ var ENEMY_SCENE: PackedScene = preload("res://Scenes/Enemy/enemy.tscn")
 var total_enemies_spawned: int
 var total_enemies_died: int
 @export var spawn_delay: float
+@export var enemy_speed: float = 0.02
 @export var spawn_delay_offset: float
 
 @onready var path_2d: Path2D = $Path2D
@@ -37,6 +38,7 @@ func spawn_enemy_and_schedule_next_if_can_spawn() -> void:
 func spawn_enemy() -> void:
 	var enemy: Enemy = ENEMY_SCENE.instantiate() as Enemy
 	enemy.progress_ratio = 0
+	enemy.movement_speed = enemy_speed
 	path_2d.add_child(enemy)
 	total_enemies_spawned += 1
 

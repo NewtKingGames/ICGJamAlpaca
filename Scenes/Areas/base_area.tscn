@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cssd75r07jo21"]
+[gd_scene load_steps=4 format=3 uid="uid://cssd75r07jo21"]
 
 [ext_resource type="Script" path="res://Scenes/Areas/base_area.gd" id="1_7vyyl"]
+[ext_resource type="AudioStream" uid="uid://ciqrywc5qtq2l" path="res://Audio/GAMEVideo_Player Damage_SIO.wav" id="2_hg2ug"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4vkfg"]
 
@@ -12,3 +13,6 @@ script = ExtResource("1_7vyyl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.92451, 1.92451)
 shape = SubResource("CircleShape2D_4vkfg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hg2ug")

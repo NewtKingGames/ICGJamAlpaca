@@ -14,3 +14,5 @@ signal shake_screen(apply_shake: float)
 signal reset_values
 
 signal next_level_loading
+
+signal scene_change

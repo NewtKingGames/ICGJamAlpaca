@@ -23,6 +23,7 @@ extends PathFollow2D
 func _ready() -> void:
 	invunlerabilty_timer.timeout.connect(_on_invunlerabilty_timeout)
 	sprite_2d.animation_finished.connect(func(): sprite_2d.play("default"))
+	Globals.base_killed.connect(func(): movement_speed =0.0)
 
 func _process(delta: float) -> void:
 	progress_ratio += movement_speed* delta
