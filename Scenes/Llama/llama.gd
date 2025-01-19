@@ -17,12 +17,14 @@ enum SPIT_MODE_ENUM {ALWAYS, PENNED, GRABBED, PENNED_AND_GRABBED}
 @export var pen_time: float = 10
 @export var spit_rate: float = 1.5
 @export var spit_speed: float = 300.0
+@export var daze_time: float = 5.0
 
 
 @onready var sprite_2d: AnimatedSprite2D = $VisibleNodes/Sprite2D
+@onready var confusion_effect: CPUParticles2D = $ConfusionEffect
 
 
-
+var dazed: bool = false
 var flung: bool = false
 var held: bool = false
 var penned: bool = false
@@ -68,8 +70,9 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var collider = collision.get_collider()
 		llama_collision_noise.play()
-		if collider is EnemyBody:
+		if collider is EnemyBody and flung:
 			collider.hit(100)
+			state_machine.on_outside_transition("dazed")
 	#if velocity != Vector2.ZERO:
 		## Rotate the llama in the correct direction
 		#rotation = lerpf(rotation, velocity.angle(), delta*2)
@@ -142,11 +145,11 @@ func spit() -> void:
 	Events.llama_spit.emit(spit)
 
 func _on_player_entered(body: Node2D) -> void: 
-	if body is Player and not penned and not flung:
+	if body is Player and not penned and not flung and not dazed:
 		state_machine.on_outside_transition("flee")
 
 func _on_player_exited(body: Node2D) -> void:
-	if body is Player and not penned and not flung:
+	if body is Player and not penned and not flung and not dazed:
 		state_machine.on_outside_transition("idle")
 
 func llama_grabbed() -> void:

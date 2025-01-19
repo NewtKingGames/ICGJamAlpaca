@@ -66,7 +66,8 @@ func _on_llama_collision(body: Node2D) -> void:
 		hold_llama(body)
 
 func hold_llama(llama: Llama) -> void:
-	if held_llama:
+	# Can't grab a llam if we already have one and can't grab a dazed llama
+	if held_llama or llama.dazed:
 		return
 	held_llama = llama
 	held_llama.llama_grabbed()

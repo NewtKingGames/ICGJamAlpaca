@@ -24,6 +24,8 @@ func _on_llama_exited(body: Node2D) -> void:
 		penned_llama = null
 
 func pen_llama(llama: Llama) -> void:
+	if llama.dazed:
+		return
 	penned_llama = llama
 	penned_llama.pen(self)
 

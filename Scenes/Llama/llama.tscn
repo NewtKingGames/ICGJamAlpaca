@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dhtypwovh50vr"]
+[gd_scene load_steps=32 format=3 uid="uid://dhtypwovh50vr"]
 
 [ext_resource type="Script" path="res://Scenes/Llama/llama.gd" id="1_7h8ci"]
 [ext_resource type="Script" path="res://Scripts/States/state_machine.gd" id="1_mb2rl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/Llama/llama_flung.gd" id="6_16n04"]
 [ext_resource type="Script" path="res://Scenes/Llama/llama_penned.gd" id="7_luyet"]
 [ext_resource type="Script" path="res://Scenes/Llama/exit_pen.gd" id="9_85bgn"]
+[ext_resource type="Script" path="res://Scenes/Llama/dazed.gd" id="10_253va"]
 [ext_resource type="Texture2D" uid="uid://xdmt0etye5xy" path="res://Art/Llama Spritesheet.png" id="10_gq3d1"]
 [ext_resource type="PackedScene" uid="uid://xa534cvtars8" path="res://Scenes/UI/llama_progress_bar.tscn" id="11_v1w6j"]
 [ext_resource type="AudioStream" uid="uid://c53qth3hl1ela" path="res://Audio/Llama Spit.wav" id="12_i5jn6"]
@@ -16,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://gl8h5svglvxk" path="res://Audio/Llama Sound 4.wav" id="14_k0qkl"]
 [ext_resource type="AudioStream" uid="uid://btrx4x1e40srj" path="res://Audio/Llama Sound 3.wav" id="15_yvmof"]
 [ext_resource type="AudioStream" uid="uid://de5ai1w0vn6ae" path="res://Audio/Llama sound 2.mp3" id="16_aeujn"]
+[ext_resource type="Texture2D" uid="uid://1yiew2unkk8h" path="res://Art/dizzy_star.png" id="18_7fblt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puh7i"]
 atlas = ExtResource("10_gq3d1")
@@ -117,6 +119,10 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxlr7"]
 
+[sub_resource type="Gradient" id="Gradient_eh8w0"]
+offsets = PackedFloat32Array(0, 0.995789)
+colors = PackedColorArray(1, 1, 1, 1, 0.295867, 0.295867, 0.295867, 0.180392)
+
 [node name="Llama" type="CharacterBody2D" groups=["llamas"]]
 scale = Vector2(1.2, 1.2)
 collision_layer = 2
@@ -150,14 +156,16 @@ script = ExtResource("7_luyet")
 [node name="ExitPen" type="Node" parent="StateMachine"]
 script = ExtResource("9_85bgn")
 
+[node name="Dazed" type="Node" parent="StateMachine"]
+script = ExtResource("10_253va")
+
 [node name="VisibleNodes" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="VisibleNodes"]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_i5hpq")
-animation = &"idle_down"
+animation = &"walk_side"
 autoplay = "walk_up"
-frame_progress = 0.50843
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.57079
@@ -211,3 +219,25 @@ stream = ExtResource("15_yvmof")
 [node name="LlamaLowPitch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_aeujn")
 volume_db = 8.0
+
+[node name="ConfusionEffect" type="CPUParticles2D" parent="."]
+position = Vector2(48.3333, -68.3333)
+emitting = false
+lifetime = 1.5
+randomness = 0.26
+texture = ExtResource("18_7fblt")
+emission_shape = 2
+emission_sphere_radius = 13.75
+direction = Vector2(2.08165e-12, 2.08165e-12)
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 26.82
+initial_velocity_max = 99.62
+angular_velocity_min = -5.0
+angular_velocity_max = 5.0
+orbit_velocity_min = -2.0
+orbit_velocity_max = 2.0
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_eh8w0")
