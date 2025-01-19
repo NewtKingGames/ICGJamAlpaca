@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var llama_throwing_position: Marker2D = $LlamaThrowingPosition
 @onready var animated_sprite_2d: AnimatedSprite2D = $VisibleNodes/AnimatedSprite2D
 @onready var visible_nodes: Node2D = $VisibleNodes
+@onready var hands: AnimatedSprite2D = $Hands
 
 var previous_velocity: Vector2 = Vector2(1, 0)
 
@@ -20,9 +21,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if velocity.x > 0 and previous_velocity.x < 0:
-		visible_nodes.scale.x = 1
+		animated_sprite_2d.flip_h = false
 	if velocity.x < 0 and previous_velocity.x > 0:
-		visible_nodes.scale.x = -1
+		animated_sprite_2d.flip_h = true
 	# only set previous velocity to nonzero x values
 	if velocity.x != 0:
 		previous_velocity = velocity
@@ -60,6 +61,7 @@ func hold_llama(llama: Llama) -> void:
 	Events.llama_grabbed.emit()
 	# SUPER NASY CODE BUT OH WELL
 	animated_sprite_2d.rotation = deg_to_rad(90)
+	hands.visible = true
 
 func charge_held_llama() -> void:
 	pass
@@ -73,6 +75,7 @@ func release_held_llama() -> void:
 	Events.llama_released.emit()
 	# SUPER NASY CODE BUT OH WELL
 	animated_sprite_2d.rotation = 0
+	hands.visible = false
 
 func update_held_llama_position() -> void:
 	held_llama.global_position = llama_holder_position.global_position
