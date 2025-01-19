@@ -39,6 +39,7 @@ func spawn_enemy() -> void:
 func _on_enemy_entered_base(enemy: Enemy) -> void:
 	enemy.die()
 	Globals.base_health -= 5
+	Events.shake_screen.emit(45)
 
 func _on_enemy_died() -> void:
 	total_enemies_died+=1

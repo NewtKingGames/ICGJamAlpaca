@@ -42,6 +42,7 @@ func hold_llama(llama: Llama) -> void:
 		return
 	held_llama = llama
 	held_llama.llama_grabbed()
+	Events.llama_grabbed.emit()
 
 func charge_held_llama() -> void:
 	print("do nothing for now")
@@ -52,6 +53,7 @@ func release_held_llama() -> void:
 	held_llama.rotation = rotation
 	held_llama.llama_released()
 	held_llama = null
+	Events.llama_released.emit()
 
 func update_held_llama_position() -> void:
 	held_llama.global_position = llama_holder_position.global_position
