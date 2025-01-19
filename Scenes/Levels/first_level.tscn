@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjh0q1ff6823f"]
+
+[ext_resource type="PackedScene" uid="uid://cvvbf06qty7h0" path="res://Scenes/Levels/level.tscn" id="1_8b0vu"]
+[ext_resource type="PackedScene" uid="uid://bu4p373j82il4" path="res://Scenes/Objects/up_pen.tscn" id="2_i6txv"]
+[ext_resource type="PackedScene" uid="uid://cqftrm7uf3xgb" path="res://Scenes/Objects/down_pen.tscn" id="3_0e3vn"]
+[ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="4_uoyh6"]
+
+[sub_resource type="Curve2D" id="Curve2D_eg2db"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -839, -887, 0, 0, 0, 0, -838, -136, 0, 0, 0, 0, 70, -117, 0, 0, 0, 0, 80, 302, 0, 0, 0, 0, 708, 310, 0, 0, 0, 0, 752, -704, 0, 0, 0, 0, 746, -1102)
+}
+point_count = 7
+
+[node name="FirstLevel" instance=ExtResource("1_8b0vu")]
+
+[node name="Path" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(-131078, 65536, 0, -65542, 65536, 0, -6, 0, 0, -5, 65536, 1610612736, -4, 65536, 1610612736, -3, 65536, 1610612736, -2, 65536, 1342177281, 65534, 65536, 0, 131070, 0, 0, 131071, 0, 1, 65536, 0, 1, 65537, 0, 1610612736, 1, 65536, 0, -65535, 65536, 0, -131071, 65536, 0, -196607, 65536, 0, -262143, 65536, 0, -196614, 65536, 0, -262150, 65536, 0, -327686, 65536, 0, -327679, 65536, 0)
+
+[node name="Path2D" parent="." index="8"]
+curve = SubResource("Curve2D_eg2db")
+
+[node name="UpPen" parent="." index="14" instance=ExtResource("2_i6txv")]
+position = Vector2(-713, 143)
+rotation = 0.0
+
+[node name="DownPen" parent="." index="15" instance=ExtResource("3_0e3vn")]
+position = Vector2(37, -383)
+
+[node name="Llama" parent="." index="16" instance=ExtResource("4_uoyh6")]
+position = Vector2(-941, 487)
+
+[node name="Llama2" parent="." index="17" instance=ExtResource("4_uoyh6")]
+position = Vector2(564, -445)
+
+[node name="Llama3" parent="." index="18" instance=ExtResource("4_uoyh6")]
+position = Vector2(521, 564)

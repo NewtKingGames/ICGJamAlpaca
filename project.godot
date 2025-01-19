@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ICGJam9"
-run/main_scene="res://Scenes/Levels/level.tscn"
+run/main_scene="res://Scenes/Levels/first_level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Utils="*res://Globals/utils.gd"
 Events="*res://Globals/events.gd"
 Globals="*res://Globals/globals.gd"
+LevelTransitionLayer="*res://Globals/level_transition_layer.tscn"
 
 [display]
 

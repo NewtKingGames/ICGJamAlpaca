@@ -7,6 +7,7 @@
 
 [node name="Pen" type="Node2D"]
 rotation = 0.0015331
+scale = Vector2(5, 5)
 script = ExtResource("1_258k2")
 
 [node name="Area2D" type="Area2D" parent="."]

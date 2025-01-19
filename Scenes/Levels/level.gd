@@ -1,6 +1,8 @@
 extends Node2D
 class_name Level
 
+@export var NEXT_SCENE: PackedScene
+
 var ENEMY_SCENE: PackedScene = preload("res://Scenes/Enemy/enemy.tscn")
 
 @export var total_number_of_enemies_to_spawn: int
@@ -18,6 +20,7 @@ func _ready() -> void:
 	Events.enemy_entered_base.connect(_on_enemy_entered_base)
 	Events.enemy_died.connect(_on_enemy_died)
 	spawn_enemy_and_schedule_next_if_can_spawn()
+	get_tree().create_timer(1).timeout.connect(load_next_scene)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset_level"):
@@ -43,5 +46,9 @@ func _on_enemy_entered_base(enemy: Enemy) -> void:
 
 func _on_enemy_died() -> void:
 	total_enemies_died+=1
-	print("total enemies died")
-	print(total_enemies_died)
+	if total_enemies_died == total_number_of_enemies_to_spawn:
+		load_next_scene()
+
+func load_next_scene() -> void:
+	Events.reset_values.emit()
+	LevelTransitionLayer.change_scene(NEXT_SCENE)
