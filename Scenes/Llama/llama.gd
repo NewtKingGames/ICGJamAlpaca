@@ -5,7 +5,9 @@ extends CharacterBody2D
 
 var SPIT_SCENE: PackedScene = preload("res://Scenes/Projectiles/llama_spit.tscn")
 
+enum SPIT_MODE_ENUM {ALWAYS, PENNED, GRABBED, PENNED_AND_GRABBED}
 
+@export var spit_mode: SPIT_MODE_ENUM = SPIT_MODE_ENUM.PENNED_AND_GRABBED
 @export var idle_time: int = 4 
 
 @export var wander_speed: float = 60.0
@@ -63,14 +65,7 @@ func _physics_process(delta: float) -> void:
 		## Rotate the llama in the correct direction
 		#rotation = lerpf(rotation, velocity.angle(), delta*2)
 		
-	# Calculate time until next spit attack
-	if penned or held:
-		time_waiting_to_shoot += delta
-		if time_waiting_to_shoot >= spit_rate:
-			spit()
-			time_waiting_to_shoot=0.0
-	else:
-		time_waiting_to_shoot = 0.0
+	handle_spit_frame(delta)
 		
 	# Basic animation controller
 	# First we'll do if moving
@@ -90,6 +85,16 @@ func _physics_process(delta: float) -> void:
 		if current_animation == "walk_up":
 			sprite_2d.play("idle_up")
 	# Then we'll do if not moving
+
+func handle_spit_frame(delta: float) -> void:
+	# Calculate time until next spit attack
+	if penned or held:
+		time_waiting_to_shoot += delta
+		if time_waiting_to_shoot >= spit_rate:
+			spit()
+			time_waiting_to_shoot=0.0
+	else:
+		time_waiting_to_shoot = 0.0
 
 func get_vector_to_player() -> Vector2:
 	print(global_position.direction_to(player.global_position))
