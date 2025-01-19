@@ -1,16 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvvbf06qty7h0"]
+[gd_scene load_steps=21 format=3 uid="uid://cvvbf06qty7h0"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_fo8oa"]
 [ext_resource type="PackedScene" uid="uid://b0puoas2qdjsd" path="res://Scenes/UI/player_ui.tscn" id="1_icvwf"]
 [ext_resource type="PackedScene" uid="uid://c0wwu5nyfgk82" path="res://Scenes/Player/player.tscn" id="1_snsqa"]
 [ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="2_n6vwf"]
 [ext_resource type="Texture2D" uid="uid://cmr2oofskex1p" path="res://Art/soil.png" id="2_xc6p7"]
-[ext_resource type="PackedScene" uid="uid://vbbkotngx65d" path="res://Scenes/Objects/pen.tscn" id="3_txefw"]
 [ext_resource type="Texture2D" uid="uid://dteoe5eb66xfd" path="res://Art/Environmental Spritesheet.png" id="4_s16ew"]
 [ext_resource type="Script" path="res://Scenes/Levels/projectiles.gd" id="5_8pb4v"]
 [ext_resource type="Script" path="res://Scenes/Levels/camera_2d.gd" id="7_apqf4"]
 [ext_resource type="Texture2D" uid="uid://yk3smkc8uew5" path="res://Art/Paths Spritesheet.png" id="7_l830a"]
 [ext_resource type="PackedScene" uid="uid://cssd75r07jo21" path="res://Scenes/Areas/base_area.tscn" id="9_ld2s4"]
+[ext_resource type="PackedScene" uid="uid://b45vtjnhc68iv" path="res://Scenes/Objects/left_pen.tscn" id="11_w2e1r"]
+[ext_resource type="PackedScene" uid="uid://bfprymuidtjx3" path="res://Scenes/Objects/right_pen.tscn" id="12_4kdlw"]
+[ext_resource type="PackedScene" uid="uid://cqftrm7uf3xgb" path="res://Scenes/Objects/down_pen.tscn" id="12_dgd8l"]
+[ext_resource type="PackedScene" uid="uid://bu4p373j82il4" path="res://Scenes/Objects/up_pen.tscn" id="13_mcj71"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nj3j1"]
 texture = ExtResource("7_l830a")
@@ -574,29 +577,32 @@ layer_0/tile_data = PackedInt32Array(-3276862, 131073, 1, -2424904, 131073, 1, -
 zoom = Vector2(0.7, 0.7)
 script = ExtResource("7_apqf4")
 
-[node name="Llama" parent="." instance=ExtResource("2_n6vwf")]
-position = Vector2(-514, 344)
-
-[node name="Llama2" parent="." instance=ExtResource("2_n6vwf")]
-position = Vector2(76, -607)
-
-[node name="Pen" parent="." instance=ExtResource("3_txefw")]
-position = Vector2(-791, 153)
-rotation = -1.57079
-scale = Vector2(3.36036, 3.36036)
-
-[node name="Pen2" parent="." instance=ExtResource("3_txefw")]
-position = Vector2(63, -294)
-rotation = 1.57079
-scale = Vector2(3.36036, 3.36036)
-look_direction = 3
-
 [node name="Projectiles" type="Node" parent="."]
 script = ExtResource("5_8pb4v")
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(48, -191)
 curve = SubResource("Curve2D_e31hq")
+
+[node name="DownPen" parent="." instance=ExtResource("12_dgd8l")]
+position = Vector2(32, -361)
+rotation = 0.0
+scale = Vector2(5, 5)
+
+[node name="UpPen" parent="." instance=ExtResource("13_mcj71")]
+position = Vector2(-805, 120)
+rotation = 0.0
+scale = Vector2(5, 5)
+
+[node name="LeftPen" parent="." instance=ExtResource("11_w2e1r")]
+position = Vector2(320, 96)
+rotation = 0.0
+scale = Vector2(5, 5)
+
+[node name="RightPen" parent="." instance=ExtResource("12_4kdlw")]
+position = Vector2(547, -496)
+rotation = 0.0
+scale = Vector2(5, 5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-2, -773)
@@ -639,3 +645,9 @@ shape = SubResource("RectangleShape2D_2b7y5")
 [node name="BaseArea" parent="." instance=ExtResource("9_ld2s4")]
 position = Vector2(761, -850)
 scale = Vector2(-7.7673, 7.41056)
+
+[node name="Llama" parent="." instance=ExtResource("2_n6vwf")]
+position = Vector2(-514, 344)
+
+[node name="Llama2" parent="." instance=ExtResource("2_n6vwf")]
+position = Vector2(76, -607)

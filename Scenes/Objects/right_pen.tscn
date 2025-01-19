@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfprymuidtjx3"]
+
+[ext_resource type="PackedScene" uid="uid://vbbkotngx65d" path="res://Scenes/Objects/pen.tscn" id="1_hi386"]
+
+[node name="RightPen" instance=ExtResource("1_hi386")]
+look_direction = 2

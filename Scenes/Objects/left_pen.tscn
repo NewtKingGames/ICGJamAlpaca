@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b45vtjnhc68iv"]
+
+[ext_resource type="PackedScene" uid="uid://vbbkotngx65d" path="res://Scenes/Objects/pen.tscn" id="1_cy0xm"]
+
+[node name="LeftPen" instance=ExtResource("1_cy0xm")]
+look_direction = 0
+
+[node name="PenFront" parent="." index="1"]
+position = Vector2(-29, 0)
+
+[node name="Dirt" parent="." index="3"]
+position = Vector2(-5.99999, 0.00919861)
+frame = 3
+
+[node name="Trough" parent="." index="4"]
+position = Vector2(-26, 0)

@@ -28,7 +28,21 @@ func pen_llama(llama: Llama) -> void:
 	penned_llama.pen(self)
 
 func get_llama_exit_position() -> Vector2:
-	return $PenFront.global_position + Vector2.LEFT.rotated(rotation).normalized()*600;
+	var direction_vector: Vector2
+	match look_direction:
+		LOOK_DIRECTION.LEFT:
+			direction_vector = Vector2.RIGHT
+		LOOK_DIRECTION.RIGHT:
+			direction_vector = Vector2.LEFT
+		LOOK_DIRECTION.UP:
+			direction_vector = Vector2.DOWN
+		LOOK_DIRECTION.DOWN:
+			direction_vector = Vector2.UP
+		_:
+			direction_vector = Vector2.ZERO
+	#return $PenFront.global_position + direction_vector.rotated(rotation).normalized()*600;
+	return pen_center.global_position + direction_vector*150;
+
 
 func get_llama_penned_position() -> Vector2:
 	return pen_center.global_position;

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu4p373j82il4"]
+
+[ext_resource type="PackedScene" uid="uid://vbbkotngx65d" path="res://Scenes/Objects/pen.tscn" id="1_sgi0b"]
+
+[node name="UpPen" instance=ExtResource("1_sgi0b")]
+
+[node name="PenFront" parent="." index="1"]
+position = Vector2(2.72848e-12, -29)
+rotation = 1.57079
+
+[node name="Dirt" parent="." index="3"]
+position = Vector2(0.989267, -7.00152)
+frame = 3
+
+[node name="Trough" parent="." index="4"]
+position = Vector2(0, -24)
+frame = 0

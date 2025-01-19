@@ -14,7 +14,7 @@ enum SPIT_MODE_ENUM {ALWAYS, PENNED, GRABBED, PENNED_AND_GRABBED}
 @export var flee_speed: float = 120.0
 @export var flung_max_speed: float = 900.0
 @export var pen_enter_speed: float = 240.0 
-@export var pen_time: float = 40
+@export var pen_time: float = 10
 @export var spit_rate: float = 1.5
 @export var spit_speed: float = 240.0
 
