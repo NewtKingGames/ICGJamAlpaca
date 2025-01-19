@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://xa534cvtars8"]
+
+[ext_resource type="Texture2D" uid="uid://wyciaosj0s8k" path="res://Art/over.png" id="1_gdw2d"]
+[ext_resource type="Script" path="res://Scenes/UI/llama_progress_bar.gd" id="1_tilnu"]
+[ext_resource type="Texture2D" uid="uid://d5ywypwxqbei" path="res://Art/progress.png" id="2_76dyh"]
+
+[node name="LlamaProgressBar" type="TextureProgressBar"]
+modulate = Color(0, 0.705882, 1, 1)
+offset_top = -1.0
+offset_right = 300.0
+offset_bottom = 29.0
+scale = Vector2(0.831842, 0.942399)
+value = 100.0
+texture_under = ExtResource("1_gdw2d")
+texture_over = ExtResource("1_gdw2d")
+texture_progress = ExtResource("2_76dyh")
+script = ExtResource("1_tilnu")

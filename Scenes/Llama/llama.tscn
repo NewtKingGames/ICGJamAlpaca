@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dhtypwovh50vr"]
+[gd_scene load_steps=24 format=3 uid="uid://dhtypwovh50vr"]
 
 [ext_resource type="Script" path="res://Scenes/Llama/llama.gd" id="1_7h8ci"]
 [ext_resource type="Script" path="res://Scripts/States/state_machine.gd" id="1_mb2rl"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scenes/Llama/llama_penned.gd" id="7_luyet"]
 [ext_resource type="Script" path="res://Scenes/Llama/exit_pen.gd" id="9_85bgn"]
 [ext_resource type="Texture2D" uid="uid://xdmt0etye5xy" path="res://Art/Llama Spritesheet.png" id="10_gq3d1"]
+[ext_resource type="PackedScene" uid="uid://xa534cvtars8" path="res://Scenes/UI/llama_progress_bar.tscn" id="11_v1w6j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puh7i"]
 atlas = ExtResource("10_gq3d1")
@@ -182,3 +183,10 @@ offset_left = -18.0
 offset_top = -58.0
 offset_right = 22.0
 offset_bottom = -35.0
+
+[node name="LlamaProgressBar" parent="." instance=ExtResource("11_v1w6j")]
+visible = false
+offset_left = -116.667
+offset_top = -135.833
+offset_right = 183.333
+offset_bottom = -105.833

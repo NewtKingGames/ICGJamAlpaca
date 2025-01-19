@@ -33,6 +33,7 @@ var player: Player
 @onready var state_machine: StateMachine = $StateMachine
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var visible_nodes: Node2D = $VisibleNodes
+@onready var llama_progress_bar: LlamaProgressBar = $LlamaProgressBar
 
 
 var time_waiting_to_shoot: float = 0
