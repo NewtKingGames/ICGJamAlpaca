@@ -159,7 +159,7 @@ scale = Vector2(0.383845, 0.383845)
 sprite_frames = SubResource("SpriteFrames_htsoq")
 animation = &"walk_down"
 autoplay = "idle_down"
-frame_progress = 0.0148868
+frame_progress = 0.901807
 
 [node name="Hands" type="AnimatedSprite2D" parent="."]
 visible = false

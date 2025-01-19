@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var enemy_killed_label: Label = $EnemyKilledCounter/VBoxContainer/EnemyKilledLabel
+@onready var enemy_killed_label: Label = $EnemyKilledCounter/EnemyKilledLabel
 @onready var base_health_label: Label = $BaseHealthCounter/BaseHealthLabel
 @onready var level_complete_text: Label = $LevelCompleteText
 
