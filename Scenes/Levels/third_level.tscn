@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c00vukmccn0wv"]
 
 [ext_resource type="PackedScene" uid="uid://cvvbf06qty7h0" path="res://Scenes/Levels/level.tscn" id="1_fwruj"]
-[ext_resource type="AudioStream" uid="uid://bd5p6aksos3h8" path="res://Audio/Music/MUSCLoop_Mid-tempo action (Phase 3)_SIO.wav" id="2_52cwx"]
 [ext_resource type="PackedScene" uid="uid://bcwy1gy1tvgfx" path="res://Scenes/Levels/fourth_level.tscn" id="2_qgwai"]
 [ext_resource type="PackedScene" uid="uid://b45vtjnhc68iv" path="res://Scenes/Objects/left_pen.tscn" id="2_qi0u7"]
 [ext_resource type="PackedScene" uid="uid://cqftrm7uf3xgb" path="res://Scenes/Objects/down_pen.tscn" id="3_06pd5"]
+[ext_resource type="AudioStream" uid="uid://8hmq6x01ew33" path="res://Audio/Music/Llama.wav" id="3_ytp2m"]
 [ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="4_dkkux"]
 
 [sub_resource type="Curve2D" id="Curve2D_r5fd0"]
@@ -29,7 +29,7 @@ curve = SubResource("Curve2D_r5fd0")
 position = Vector2(500, 905)
 
 [node name="LevelMusic" parent="." index="15"]
-stream = ExtResource("2_52cwx")
+stream = ExtResource("3_ytp2m")
 
 [node name="LeftPen" parent="." index="16" instance=ExtResource("2_qi0u7")]
 position = Vector2(764, -467)

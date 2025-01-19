@@ -10,6 +10,8 @@ var position_to_walk_in_pen: Vector2 = Vector2.ZERO
 var moving: bool = true
 
 func Enter() -> void:
+	#print("is disabled")
+	#llama_character.collision_shape_2d.disabled = true
 	llama_character.llama_low_pitch.pitch_scale = randf_range(0.9, 1.2)
 	llama_character.llama_low_pitch.play()
 	moving = true
@@ -30,6 +32,7 @@ func Enter() -> void:
 	#add_child(progress_bar)
 
 func Exit() -> void:
+	#llama_character.collision_shape_2d.disabled = false
 	#if progress_bar:
 		#progress_bar.queue_free()
 	llama_character.llama_progress_bar.visible = false
