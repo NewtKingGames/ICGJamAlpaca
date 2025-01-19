@@ -10,6 +10,8 @@ var position_to_walk_in_pen: Vector2 = Vector2.ZERO
 var moving: bool = true
 
 func Enter() -> void:
+	llama_character.llama_low_pitch.pitch_scale = randf_range(0.9, 1.2)
+	llama_character.llama_low_pitch.play()
 	moving = true
 	time_waiting_to_shoot = 0.0
 	llama_character.velocity = Vector2.ZERO

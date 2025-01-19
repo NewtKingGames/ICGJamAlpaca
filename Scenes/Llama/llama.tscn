@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dhtypwovh50vr"]
+[gd_scene load_steps=29 format=3 uid="uid://dhtypwovh50vr"]
 
 [ext_resource type="Script" path="res://Scenes/Llama/llama.gd" id="1_7h8ci"]
 [ext_resource type="Script" path="res://Scripts/States/state_machine.gd" id="1_mb2rl"]
@@ -11,6 +11,11 @@
 [ext_resource type="Script" path="res://Scenes/Llama/exit_pen.gd" id="9_85bgn"]
 [ext_resource type="Texture2D" uid="uid://xdmt0etye5xy" path="res://Art/Llama Spritesheet.png" id="10_gq3d1"]
 [ext_resource type="PackedScene" uid="uid://xa534cvtars8" path="res://Scenes/UI/llama_progress_bar.tscn" id="11_v1w6j"]
+[ext_resource type="AudioStream" uid="uid://c53qth3hl1ela" path="res://Audio/Llama Spit.wav" id="12_i5jn6"]
+[ext_resource type="AudioStream" uid="uid://b558vt5olaulk" path="res://Audio/Llama sound 1 (being grabbed maybe).wav" id="13_an616"]
+[ext_resource type="AudioStream" uid="uid://gl8h5svglvxk" path="res://Audio/Llama Sound 4.wav" id="14_k0qkl"]
+[ext_resource type="AudioStream" uid="uid://btrx4x1e40srj" path="res://Audio/Llama Sound 3.wav" id="15_yvmof"]
+[ext_resource type="AudioStream" uid="uid://de5ai1w0vn6ae" path="res://Audio/Llama sound 2.mp3" id="16_aeujn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puh7i"]
 atlas = ExtResource("10_gq3d1")
@@ -190,3 +195,19 @@ offset_left = -116.667
 offset_top = -135.833
 offset_right = 183.333
 offset_bottom = -105.833
+
+[node name="SpitNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_i5jn6")
+
+[node name="LlamaGrabbedNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_an616")
+
+[node name="LlamaCollisionNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_k0qkl")
+
+[node name="LlamaHighPitch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_yvmof")
+
+[node name="LlamaLowPitch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_aeujn")
+volume_db = 8.0

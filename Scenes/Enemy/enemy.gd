@@ -16,6 +16,7 @@ extends PathFollow2D
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var invunlerabilty_timer: Timer = $InvunlerabiltyTimer
+@onready var slime_damage_noise: AudioStreamPlayer2D = $SlimeDamageNoise
 
 
 
@@ -27,6 +28,8 @@ func _process(delta: float) -> void:
 	progress_ratio += movement_speed* delta
 
 func hit(damage: int) -> void:
+	slime_damage_noise.pitch_scale = randf_range(0.7, 1.3)
+	slime_damage_noise.play()
 	sprite_2d.material.set_shader_parameter("progress",1)
 	invunlerabilty_timer.start()
 	health -= damage

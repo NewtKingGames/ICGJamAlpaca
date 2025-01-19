@@ -4,6 +4,7 @@ extends LlamaState
 var fling_current_speed: float
 
 func Enter() -> void:
+	# Should play a sound here
 	llama_character.flung = true
 	fling_current_speed = llama_character.flung_max_speed 
 

@@ -6,6 +6,8 @@ var destination_vector: Vector2
 # when a llama exits a pen it needs to grab a point on the map to wander to before transitioning to idle
 # It should be able to be corralled almost immediately though
 func Enter() -> void:
+	# Should play a sound here
+	llama_character.llama_high_pitch.play()
 	if not llama_character.current_pen:
 		Transitioned.emit(self, "idle")
 	else:

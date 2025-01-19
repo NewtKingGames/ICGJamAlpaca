@@ -4,6 +4,7 @@ extends Node2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var sounds: Array[AudioStream] = []
+@export var sound_override: float = 0.0
 
 func _ready() -> void:
 	if sounds.size() == 0:
@@ -19,6 +20,7 @@ func _ready() -> void:
 	for child in get_children():
 		child = child as AudioStreamPlayer2D
 		child.stream = sounds[index]
+		child.volume_db = sound_override
 		index+=1
 
 func play_sound() -> void:

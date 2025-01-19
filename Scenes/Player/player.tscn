@@ -162,7 +162,7 @@ scale = Vector2(0.383845, 0.383845)
 sprite_frames = SubResource("SpriteFrames_htsoq")
 animation = &"walk_down"
 autoplay = "idle_down"
-frame_progress = 0.241122
+frame_progress = 0.753154
 
 [node name="Hands" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -172,3 +172,4 @@ sprite_frames = SubResource("SpriteFrames_xlwbt")
 
 [node name="SoundPlayer" parent="." instance=ExtResource("5_lgpcy")]
 sounds = Array[AudioStream]([ExtResource("6_vvwbh"), ExtResource("7_owqj2")])
+sound_override = -8.5

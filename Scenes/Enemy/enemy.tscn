@@ -1,10 +1,11 @@
-[gd_scene load_steps=43 format=3 uid="uid://cltt3duqip6jn"]
+[gd_scene load_steps=44 format=3 uid="uid://cltt3duqip6jn"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy.gd" id="1_vuf7a"]
 [ext_resource type="Shader" path="res://Scenes/Enemy/enemy.gdshader" id="2_3jpls"]
 [ext_resource type="Texture2D" uid="uid://dstoqpx8awqa3" path="res://Art/IMG_0081.png" id="2_eoxfm"]
 [ext_resource type="Texture2D" uid="uid://drv24ymp2xpuh" path="res://Art/Slime Spritesheet.png" id="4_8egrq"]
 [ext_resource type="Script" path="res://Scenes/Enemy/CharacterBody2D.gd" id="4_l38il"]
+[ext_resource type="AudioStream" uid="uid://cqxxerw1308b3" path="res://Audio/SlimeDamage1.wav" id="6_ulneh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_co5fp"]
 resource_local_to_scene = true
@@ -311,3 +312,6 @@ shape = SubResource("CircleShape2D_apt6x")
 
 [node name="InvunlerabiltyTimer" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="SlimeDamageNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ulneh")

@@ -10,13 +10,13 @@ enum SPIT_MODE_ENUM {ALWAYS, PENNED, GRABBED, PENNED_AND_GRABBED}
 @export var spit_mode: SPIT_MODE_ENUM = SPIT_MODE_ENUM.PENNED_AND_GRABBED
 @export var idle_time: int = 4 
 
-@export var wander_speed: float = 60.0
-@export var flee_speed: float = 120.0
+@export var wander_speed: float = 140.0
+@export var flee_speed: float = 350
 @export var flung_max_speed: float = 900.0
 @export var pen_enter_speed: float = 240.0 
 @export var pen_time: float = 10
 @export var spit_rate: float = 1.5
-@export var spit_speed: float = 240.0
+@export var spit_speed: float = 300.0
 
 
 @onready var sprite_2d: AnimatedSprite2D = $VisibleNodes/Sprite2D
@@ -34,6 +34,13 @@ var player: Player
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var visible_nodes: Node2D = $VisibleNodes
 @onready var llama_progress_bar: LlamaProgressBar = $LlamaProgressBar
+
+# Noises
+@onready var spit_noise: AudioStreamPlayer2D = $SpitNoise
+@onready var llama_grabbed_noise: AudioStreamPlayer2D = $LlamaGrabbedNoise
+@onready var llama_collision_noise: AudioStreamPlayer2D = $LlamaCollisionNoise
+@onready var llama_high_pitch: AudioStreamPlayer2D = $LlamaHighPitch
+@onready var llama_low_pitch: AudioStreamPlayer2D = $LlamaLowPitch
 
 
 var time_waiting_to_shoot: float = 0
@@ -60,6 +67,7 @@ func _physics_process(delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide(velocity*delta)
 	if collision:
 		var collider = collision.get_collider()
+		llama_collision_noise.play()
 		if collider is EnemyBody:
 			collider.hit(100)
 	#if velocity != Vector2.ZERO:
@@ -123,6 +131,9 @@ func pen(pen: Pen) -> void:
 				sprite_2d.play("idle_side")
 
 func spit() -> void:
+	spit_noise.pitch_scale = randf_range(0.8, 1.2)
+	spit_noise.play()
+	await get_tree().create_timer(0.5).timeout
 	var spit: LlamaSpit = SPIT_SCENE.instantiate() as LlamaSpit
 	spit.rotation = get_spit_rotation()
 	spit.direction = get_spit_direction()
@@ -139,6 +150,8 @@ func _on_player_exited(body: Node2D) -> void:
 		state_machine.on_outside_transition("idle")
 
 func llama_grabbed() -> void:
+	llama_grabbed_noise.pitch_scale = randf_range(0.9, 1.3)
+	llama_grabbed_noise.play()
 	state_machine.on_outside_transition("caught")
 
 func llama_released() -> void:
