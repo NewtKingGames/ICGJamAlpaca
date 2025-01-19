@@ -71,14 +71,14 @@ func _physics_process(delta: float) -> void:
 		
 	# Basic animation controller
 	# First we'll do if moving
-	if not penned:
+	if not penned and not held:
 		if velocity.x != 0:
 			sprite_2d.play("walk_side")
 		elif velocity.y > 0:
 			sprite_2d.play("walk_down")
 		elif velocity.y < 0:
 			sprite_2d.play("walk_up")
-	if velocity == Vector2.ZERO and not penned:
+	if velocity == Vector2.ZERO and not penned and not held:
 		var current_animation:String = sprite_2d.animation
 		if current_animation == "walk_side":
 			sprite_2d.play("idle_side")
@@ -157,7 +157,7 @@ func get_spit_rotation() -> float:
 			_:
 				return Vector2.ZERO.angle()
 	else:
-		return rotation
+		return rotation-deg_to_rad(90)
 
 func get_spit_direction() -> Vector2:
 	if penned:
@@ -173,4 +173,4 @@ func get_spit_direction() -> Vector2:
 			_:
 				return Vector2.ZERO
 	else:
-		return Vector2(1,0).rotated(rotation)
+		return Vector2(0,1).rotated(rotation+deg_to_rad(180))

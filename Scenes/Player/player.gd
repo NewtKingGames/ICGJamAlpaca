@@ -55,4 +55,4 @@ func release_held_llama() -> void:
 
 func update_held_llama_position() -> void:
 	held_llama.global_position = llama_holder_position.global_position
-	held_llama.rotation = rotation
+	held_llama.rotation = rotation + deg_to_rad(90)
