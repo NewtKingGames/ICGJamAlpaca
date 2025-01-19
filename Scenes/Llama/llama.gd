@@ -5,6 +5,9 @@ extends CharacterBody2D
 
 var SPIT_SCENE: PackedScene = preload("res://Scenes/Projectiles/llama_spit.tscn")
 
+
+@export var idle_time: int = 4 
+
 @export var wander_speed: float = 60.0
 @export var flee_speed: float = 120.0
 @export var flung_max_speed: float = 900.0

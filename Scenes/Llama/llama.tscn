@@ -151,7 +151,7 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_i5hpq")
 animation = &"idle_down"
 autoplay = "walk_up"
-frame_progress = 0.00916026
+frame_progress = 0.943344
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.57079

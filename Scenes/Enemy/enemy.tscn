@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/Enemy/CharacterBody2D.gd" id="4_l38il"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_co5fp"]
+resource_local_to_scene = true
 shader = ExtResource("2_3jpls")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0

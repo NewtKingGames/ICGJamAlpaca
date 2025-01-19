@@ -6,7 +6,7 @@ var time_to_idle: float
 
 
 func Enter() -> void:
-	time_to_idle = randf_range(5, 9)
+	time_to_idle = randf_range(-1, 1) + llama_character.idle_time
 	llama_character.velocity = Vector2.ZERO
 
 
