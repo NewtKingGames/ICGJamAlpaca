@@ -111,8 +111,6 @@ func pen(pen: Pen) -> void:
 		penned = true
 		current_pen = pen
 		state_machine.on_outside_transition("penned")
-		print("we penned up")
-		print(pen.look_direction)
 		match pen.look_direction: 
 			Pen.LOOK_DIRECTION.UP:
 				sprite_2d.play("idle_up")
@@ -120,6 +118,8 @@ func pen(pen: Pen) -> void:
 				sprite_2d.play("idle_down")
 			Pen.LOOK_DIRECTION.LEFT:
 				sprite_2d.play("idle_side")
+				# NEED TO FLIP THE SPRITES TO THE LEFT
+				visible_nodes.scale.x = -1
 			Pen.LOOK_DIRECTION.RIGHT:
 				sprite_2d.play("idle_side")
 
