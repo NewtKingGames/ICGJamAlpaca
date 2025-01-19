@@ -69,8 +69,8 @@ func _physics_process(delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide(velocity*delta)
 	if collision:
 		var collider = collision.get_collider()
-		llama_collision_noise.play()
 		if collider is EnemyBody and flung:
+			llama_collision_noise.play()
 			collider.hit(100)
 			state_machine.on_outside_transition("dazed")
 	#if velocity != Vector2.ZERO:

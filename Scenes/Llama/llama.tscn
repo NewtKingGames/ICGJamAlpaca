@@ -192,6 +192,7 @@ shape = SubResource("CircleShape2D_rxlr7")
 debug_color = Color(0.781979, 0.381088, 0.558671, 0.42)
 
 [node name="StateLabel" type="Label" parent="."]
+visible = false
 offset_left = -18.0
 offset_top = -58.0
 offset_right = 22.0
@@ -223,6 +224,7 @@ volume_db = 8.0
 [node name="ConfusionEffect" type="CPUParticles2D" parent="."]
 position = Vector2(48.3333, -68.3333)
 emitting = false
+amount = 16
 lifetime = 1.5
 randomness = 0.26
 texture = ExtResource("18_7fblt")

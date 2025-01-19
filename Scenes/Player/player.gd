@@ -58,7 +58,13 @@ func _physics_process(delta: float) -> void:
 		#else:
 		#look_at(direction + global_position)
 	move_and_slide()
-		
+
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("pause"):
+		#if Engine.time_scale == 0:
+			#Engine.time_scale = 1
+		#else:
+			#Engine.time_scale = 0
 
 func _on_llama_collision(body: Node2D) -> void:
 	body = body as Llama
