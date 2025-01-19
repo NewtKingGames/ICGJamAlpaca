@@ -65,7 +65,6 @@ func _physics_process(delta: float) -> void:
 	#if velocity != Vector2.ZERO:
 		## Rotate the llama in the correct direction
 		#rotation = lerpf(rotation, velocity.angle(), delta*2)
-		
 	handle_spit_frame(delta)
 		
 	# Basic animation controller
@@ -98,7 +97,6 @@ func handle_spit_frame(delta: float) -> void:
 		time_waiting_to_shoot = 0.0
 
 func get_vector_to_player() -> Vector2:
-	print(global_position.direction_to(player.global_position))
 	return global_position.direction_to(player.global_position)
 
 func get_position_away_from_player() -> Vector2:

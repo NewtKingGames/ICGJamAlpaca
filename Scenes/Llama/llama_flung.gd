@@ -6,11 +6,9 @@ var fling_current_speed: float
 func Enter() -> void:
 	llama_character.flung = true
 	fling_current_speed = llama_character.flung_max_speed 
-	print("entered the flung state")
 
 func Exit() -> void:
 	llama_character.flung = false
-	print("exiting flung state")
 	llama_character.rotation = 0
 
 # Need to settle how long the llama may or may not have collisions... Want to make sure it doesn't try to transition to other states....

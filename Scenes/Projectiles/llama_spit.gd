@@ -13,9 +13,10 @@ func _physics_process(delta: float) -> void:
 	position += direction*spit_speed*delta
 
 func _on_body_entered(body: Node2D) -> void:
-	print("hit something")
+	#print("hit something")
 	if body is Player:
-		print("hit player!")
+		pass
+		#print("hit player!")
 	else:
 		print("about to hit body")
 		body.hit(3) # TODO - include damage!!!!

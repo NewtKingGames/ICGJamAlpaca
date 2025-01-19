@@ -10,9 +10,5 @@ var wait_time: float
 	#timer.wait_timed
 
 func _process(delta: float) -> void:
-	print("HERE!")
 	if timer:
 		value = timer.time_left/wait_time * 100
-		print(value)
-		#if timer.time_left <= 0.0:
-			#queue_free()
