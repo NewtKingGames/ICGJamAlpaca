@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnyleyndxggli"]
+[gd_scene load_steps=11 format=3 uid="uid://dnyleyndxggli"]
 
 [ext_resource type="Texture2D" uid="uid://br787brrx6chu" path="res://Art/16x16 Mage 2 attacks.png" id="1_g53g5"]
 [ext_resource type="Script" path="res://Scenes/Projectiles/llama_spit.gd" id="1_pbnek"]
+[ext_resource type="Texture2D" uid="uid://de7b3gkoqfp75" path="res://Art/Spit Spritesheet.png" id="3_n5ndr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_payra"]
 
@@ -17,6 +18,14 @@ region = Rect2(64, 64, 64, 64)
 atlas = ExtResource("1_g53g5")
 region = Rect2(128, 64, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlcdi"]
+atlas = ExtResource("3_n5ndr")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u726"]
+atlas = ExtResource("3_n5ndr")
+region = Rect2(200, 0, 200, 200)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_jjd51"]
 animations = [{
 "frames": [{
@@ -30,8 +39,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_cfwjd")
 }],
 "loop": true,
-"name": &"default",
+"name": &"old_spit",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlcdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u726")
+}],
+"loop": true,
+"name": &"spit",
+"speed": 5.0
 }]
 
 [node name="LlamaSpit" type="Node2D"]
@@ -47,7 +67,8 @@ collision_mask = 5
 shape = SubResource("CapsuleShape2D_payra")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
+rotation = 1.57079
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_jjd51")
-autoplay = "default"
-frame_progress = 0.561354
+animation = &"spit"
+autoplay = "spit"

@@ -112,6 +112,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxlr7"]
 
 [node name="Llama" type="CharacterBody2D" groups=["llamas"]]
+scale = Vector2(1.2, 1.2)
 collision_layer = 2
 collision_mask = 31
 motion_mode = 1
@@ -148,9 +149,9 @@ script = ExtResource("9_85bgn")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="VisibleNodes"]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_i5hpq")
-animation = &"walk_up"
+animation = &"idle_down"
 autoplay = "walk_up"
-frame_progress = 0.0942452
+frame_progress = 0.592493
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.57079

@@ -8,8 +8,6 @@ var wander_directions: Array[Vector2] = [Vector2.UP, Vector2.LEFT, Vector2.RIGHT
 
 func Enter() -> void:
 	direction = wander_directions[randi_range(0, 3)]
-	print("direction is")
-	print(direction)
 	#llama_character.rotation = direction.angle()
 	time_to_idle = randf_range(1, 2.8)
 

@@ -2,6 +2,9 @@ class_name Pen
 extends Node2D
 
 
+enum LOOK_DIRECTION {LEFT, UP, RIGHT, DOWN}
+
+@export var look_direction: LOOK_DIRECTION = LOOK_DIRECTION.UP
 var penned_llama: Llama = null
 @onready var area_2d: Area2D = $Area2D
 @onready var pen_center: Marker2D = $PenCenter

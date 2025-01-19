@@ -71,13 +71,14 @@ func _physics_process(delta: float) -> void:
 		
 	# Basic animation controller
 	# First we'll do if moving
-	if velocity.x != 0:
-		sprite_2d.play("walk_side")
-	elif velocity.y > 0:
-		sprite_2d.play("walk_down")
-	elif  velocity.y < 0:
-		sprite_2d.play("walk_up")
-	if velocity == Vector2.ZERO:
+	if not penned:
+		if velocity.x != 0:
+			sprite_2d.play("walk_side")
+		elif velocity.y > 0:
+			sprite_2d.play("walk_down")
+		elif velocity.y < 0:
+			sprite_2d.play("walk_up")
+	if velocity == Vector2.ZERO and not penned:
 		var current_animation:String = sprite_2d.animation
 		if current_animation == "walk_side":
 			sprite_2d.play("idle_side")
@@ -102,11 +103,22 @@ func pen(pen: Pen) -> void:
 		penned = true
 		current_pen = pen
 		state_machine.on_outside_transition("penned")
+		print("we penned up")
+		print(pen.look_direction)
+		match pen.look_direction: 
+			Pen.LOOK_DIRECTION.UP:
+				sprite_2d.play("idle_up")
+			Pen.LOOK_DIRECTION.DOWN:
+				sprite_2d.play("idle_down")
+			Pen.LOOK_DIRECTION.LEFT:
+				sprite_2d.play("idle_side")
+			Pen.LOOK_DIRECTION.RIGHT:
+				sprite_2d.play("idle_side")
 
 func spit() -> void:
 	var spit: LlamaSpit = SPIT_SCENE.instantiate() as LlamaSpit
-	spit.rotation = rotation
-	spit.direction = Vector2(1,0).rotated(rotation)
+	spit.rotation = get_spit_rotation()
+	spit.direction = get_spit_direction()
 	spit.spit_speed = spit_speed
 	spit.global_position = global_position + spit.direction * 70
 	Events.llama_spit.emit(spit)
@@ -130,3 +142,35 @@ func disable_collisions() -> void:
 
 func enable_collisions() -> void:
 	collision_shape_2d.disabled = false
+
+func get_spit_rotation() -> float:
+	if penned:
+		match current_pen.look_direction: 
+			Pen.LOOK_DIRECTION.UP:
+				return Vector2.UP.angle()
+			Pen.LOOK_DIRECTION.DOWN:
+				return Vector2.DOWN.angle()
+			Pen.LOOK_DIRECTION.LEFT:
+				return Vector2.LEFT.angle()
+			Pen.LOOK_DIRECTION.RIGHT:
+				return Vector2.RIGHT.angle()
+			_:
+				return Vector2.ZERO.angle()
+	else:
+		return rotation
+
+func get_spit_direction() -> Vector2:
+	if penned:
+		match current_pen.look_direction: 
+			Pen.LOOK_DIRECTION.UP:
+				return Vector2.UP
+			Pen.LOOK_DIRECTION.DOWN:
+				return Vector2.DOWN
+			Pen.LOOK_DIRECTION.LEFT:
+				return Vector2.LEFT
+			Pen.LOOK_DIRECTION.RIGHT:
+				return Vector2.RIGHT
+			_:
+				return Vector2.ZERO
+	else:
+		return Vector2(1,0).rotated(rotation)

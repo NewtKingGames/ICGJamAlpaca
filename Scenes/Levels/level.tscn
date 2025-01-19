@@ -22104,6 +22104,7 @@ scale = Vector2(3.36036, 3.36036)
 position = Vector2(63, -294)
 rotation = 1.57079
 scale = Vector2(3.36036, 3.36036)
+look_direction = 3
 
 [node name="Projectiles" type="Node" parent="."]
 script = ExtResource("5_8pb4v")
