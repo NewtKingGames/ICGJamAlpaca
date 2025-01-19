@@ -1,5 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://swdh3jj5vj3j"]
+[gd_scene load_steps=6 format=3 uid="uid://swdh3jj5vj3j"]
 
 [ext_resource type="PackedScene" uid="uid://cvvbf06qty7h0" path="res://Scenes/Levels/level.tscn" id="1_mv2lx"]
+[ext_resource type="PackedScene" uid="uid://bfprymuidtjx3" path="res://Scenes/Objects/right_pen.tscn" id="2_qpimx"]
+[ext_resource type="PackedScene" uid="uid://b45vtjnhc68iv" path="res://Scenes/Objects/left_pen.tscn" id="3_42km8"]
+[ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="4_dnj3i"]
+
+[sub_resource type="Curve2D" id="Curve2D_fs6r0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1632, 468, 0, 0, 0, 0, -1002, 460, 0, 0, 0, 0, -993, 86, 0, 0, 0, 0, -272, 79, 0, 0, 0, 0, -249, 458, 0, 0, 0, 0, -69, 453, 0, 0, 0, 0, -69, 93, 0, 0, 0, 0, 684, 85, 0, 0, 0, 0, 693, 461, 0, 0, 0, 0, 868, 469, 0, 0, 0, 0, 877, -274, 0, 0, 0, 0, 1855, -287)
+}
+point_count = 12
 
 [node name="SecondLevel" instance=ExtResource("1_mv2lx")]
+total_number_of_enemies_to_spawn = 15
+spawn_delay = 2.0
+spawn_delay_offset = 1.0
+
+[node name="Path" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(196597, 65537, 0, 196598, 65537, 0, 196599, 65537, 0, 196600, 131073, 1, 131064, 1, 0, 65528, 131073, 0, 65529, 65537, 0, 65530, 65537, 0, 65531, 65537, 0, 65532, 1, 1, 131068, 1, 0, 196604, 65537, 1, 196605, 131073, 1, 131069, 1, 0, 65533, 131073, 0, 65534, 65537, 0, 65535, 65537, 0, 0, 65537, 0, 1, 1, 1, 65537, 1, 0, 131073, 65537, 1, 131074, 131073, 1, 65538, 1, 0, 2, 1, 0, -65534, 1, 0, -131070, 131073, 0, -131069, 65537, 0, -131068, 65537, 0, -131067, 65537, 0, -131066, 65537, 0, -131065, 65537, 0)
+
+[node name="Path2D" parent="." index="8"]
+curve = SubResource("Curve2D_fs6r0")
+
+[node name="BaseArea" parent="." index="13"]
+position = Vector2(1830, -259)
+
+[node name="RightPen" parent="." index="14" instance=ExtResource("2_qpimx")]
+position = Vector2(-1204, 132)
+
+[node name="LeftPen" parent="." index="15" instance=ExtResource("3_42km8")]
+position = Vector2(1148, 92)
+
+[node name="LeftPen2" parent="." index="16" instance=ExtResource("3_42km8")]
+position = Vector2(1152, 416)
+
+[node name="Llama" parent="." index="17" instance=ExtResource("4_dnj3i")]
+position = Vector2(-792, -392)
+
+[node name="Llama2" parent="." index="18" instance=ExtResource("4_dnj3i")]
+position = Vector2(-404, -428)
+
+[node name="Llama3" parent="." index="19" instance=ExtResource("4_dnj3i")]
+position = Vector2(368, -440)
+
+[node name="Llama4" parent="." index="20" instance=ExtResource("4_dnj3i")]
+position = Vector2(-100, -272)

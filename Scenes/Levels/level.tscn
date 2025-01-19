@@ -569,12 +569,12 @@ texture = ExtResource("2_xc6p7")
 
 [node name="Grass Sprite" type="Sprite2D" parent="."]
 position = Vector2(-244, 161)
-scale = Vector2(56.4177, 32.6909)
+scale = Vector2(-103.971, -60.2453)
 texture = SubResource("GradientTexture2D_650mu")
 
 [node name="Path" type="TileMap" parent="."]
 position = Vector2(405, 0)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.25, 0.25)
 tile_set = SubResource("TileSet_pb5mo")
 format = 2
 
