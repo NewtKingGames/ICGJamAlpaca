@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvvbf06qty7h0"]
+[gd_scene load_steps=18 format=3 uid="uid://cvvbf06qty7h0"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_fo8oa"]
 [ext_resource type="PackedScene" uid="uid://b0puoas2qdjsd" path="res://Scenes/UI/player_ui.tscn" id="1_icvwf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://vbbkotngx65d" path="res://Scenes/Objects/pen.tscn" id="3_txefw"]
 [ext_resource type="Texture2D" uid="uid://dteoe5eb66xfd" path="res://Art/Environmental Spritesheet.png" id="4_s16ew"]
 [ext_resource type="Script" path="res://Scenes/Levels/projectiles.gd" id="5_8pb4v"]
+[ext_resource type="Script" path="res://Scenes/Levels/camera_2d.gd" id="7_apqf4"]
 [ext_resource type="Texture2D" uid="uid://yk3smkc8uew5" path="res://Art/Paths Spritesheet.png" id="7_l830a"]
 [ext_resource type="PackedScene" uid="uid://cssd75r07jo21" path="res://Scenes/Areas/base_area.tscn" id="9_ld2s4"]
 
@@ -571,6 +572,7 @@ layer_0/tile_data = PackedInt32Array(-3276862, 131073, 1, -2424904, 131073, 1, -
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.7, 0.7)
+script = ExtResource("7_apqf4")
 
 [node name="Llama" parent="." instance=ExtResource("2_n6vwf")]
 position = Vector2(-514, 344)
