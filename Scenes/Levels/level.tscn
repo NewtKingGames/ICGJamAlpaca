@@ -664,5 +664,6 @@ shape = SubResource("RectangleShape2D_2b7y5")
 position = Vector2(746, -816)
 scale = Vector2(-7.7673, 7.41056)
 
-[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -14.0
 autoplay = true

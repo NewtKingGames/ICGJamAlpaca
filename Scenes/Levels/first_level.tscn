@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjh0q1ff6823f"]
+[gd_scene load_steps=8 format=3 uid="uid://cjh0q1ff6823f"]
 
 [ext_resource type="PackedScene" uid="uid://cvvbf06qty7h0" path="res://Scenes/Levels/level.tscn" id="1_8b0vu"]
 [ext_resource type="PackedScene" uid="uid://swdh3jj5vj3j" path="res://Scenes/Levels/second_level.tscn" id="2_e0axp"]
 [ext_resource type="PackedScene" uid="uid://bu4p373j82il4" path="res://Scenes/Objects/up_pen.tscn" id="2_i6txv"]
 [ext_resource type="PackedScene" uid="uid://cqftrm7uf3xgb" path="res://Scenes/Objects/down_pen.tscn" id="3_0e3vn"]
 [ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="4_uoyh6"]
+[ext_resource type="AudioStream" uid="uid://ckk53ob6qss0h" path="res://Audio/Music/MUSCLoop_Mid-tempo action (Phase 2)_SIO.wav" id="6_wok72"]
 
 [sub_resource type="Curve2D" id="Curve2D_eg2db"]
 _data = {
@@ -39,3 +40,6 @@ position = Vector2(521, 564)
 
 [node name="BaseArea" parent="." index="19"]
 position = Vector2(683, -1026)
+
+[node name="LevelMusic" parent="." index="20"]
+stream = ExtResource("6_wok72")

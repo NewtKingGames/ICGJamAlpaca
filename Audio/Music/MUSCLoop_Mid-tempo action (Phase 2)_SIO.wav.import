@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckk53ob6qss0h"
+path="res://.godot/imported/MUSCLoop_Mid-tempo action (Phase 2)_SIO.wav-03ff9d35784271e6cca32b8cf8ea6185.sample"
+
+[deps]
+
+source_file="res://Audio/Music/MUSCLoop_Mid-tempo action (Phase 2)_SIO.wav"
+dest_files=["res://.godot/imported/MUSCLoop_Mid-tempo action (Phase 2)_SIO.wav-03ff9d35784271e6cca32b8cf8ea6185.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

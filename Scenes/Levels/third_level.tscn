@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c00vukmccn0wv"]
+[gd_scene load_steps=8 format=3 uid="uid://c00vukmccn0wv"]
 
 [ext_resource type="PackedScene" uid="uid://cvvbf06qty7h0" path="res://Scenes/Levels/level.tscn" id="1_fwruj"]
+[ext_resource type="AudioStream" uid="uid://bd5p6aksos3h8" path="res://Audio/Music/MUSCLoop_Mid-tempo action (Phase 3)_SIO.wav" id="2_52cwx"]
+[ext_resource type="PackedScene" uid="uid://bcwy1gy1tvgfx" path="res://Scenes/Levels/fourth_level.tscn" id="2_qgwai"]
 [ext_resource type="PackedScene" uid="uid://b45vtjnhc68iv" path="res://Scenes/Objects/left_pen.tscn" id="2_qi0u7"]
 [ext_resource type="PackedScene" uid="uid://cqftrm7uf3xgb" path="res://Scenes/Objects/down_pen.tscn" id="3_06pd5"]
 [ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="4_dkkux"]
@@ -12,9 +14,10 @@ _data = {
 point_count = 16
 
 [node name="ThirdLevel" instance=ExtResource("1_fwruj")]
-total_number_of_enemies_to_spawn = 7
+NEXT_SCENE = ExtResource("2_qgwai")
+total_number_of_enemies_to_spawn = 45
 spawn_delay = 0.5
-enemy_speed = 0.8
+enemy_speed = 0.015
 
 [node name="Path" parent="." index="2"]
 layer_0/tile_data = PackedInt32Array(327672, 1, 0, 262136, 1, 0, 196600, 1, 0, 131064, 1, 0, 65528, 1, 0, -8, 1, 0, -65544, 1, 0, -131080, 131073, 0, -131079, 65537, 0, -131078, 65537, 0, -131077, 65537, 0, -131076, 65537, 0, -131075, 65537, 0, -131074, 65537, 0, -131073, 65537, 0, -196608, 1, 1, -131072, 131073, 1, -65537, 65537, 0, -65538, 65537, 0, -65539, 65537, 0, -65540, 65537, 0, -65541, 65537, 0, -65542, 65537, 0, -65543, 131073, 0, -7, 65537, 1, -6, 65537, 0, -5, 65537, 0, -3, 65537, 0, -4, 65537, 0, -1, 65537, 0, -2, 65537, 0, -65536, 1, 1, 0, 131073, 1, 65535, 65537, 0, 65534, 65537, 0, 65533, 65537, 0, 65532, 65537, 0, 65531, 65537, 0, 65530, 65537, 0, 65529, 131073, 0, 131065, 65537, 1, 131066, 65537, 0, 131068, 65537, 0, 131067, 65537, 0, 131069, 65537, 0, 131070, 65537, 0, 131071, 65537, 0, 65536, 1, 1, 131072, 131073, 1, 196606, 65537, 0, 196607, 65537, 0, 196605, 65537, 0, 196604, 65537, 0, 196603, 65537, 0, 196602, 65537, 0, 196601, 131073, 0, 262137, 65537, 1, 393208, 1, 0, 262138, 65537, 0, 262139, 65537, 0, 262140, 65537, 0, 262141, 65537, 0, 262142, 65537, 0, 262143, 65537, 0, 196608, 1, 1, 262144, 1, 0)
@@ -25,20 +28,23 @@ curve = SubResource("Curve2D_r5fd0")
 [node name="BaseArea" parent="." index="14"]
 position = Vector2(500, 905)
 
+[node name="LevelMusic" parent="." index="15"]
+stream = ExtResource("2_52cwx")
+
 [node name="LeftPen" parent="." index="16" instance=ExtResource("2_qi0u7")]
-position = Vector2(766, -382)
+position = Vector2(764, -467)
 
 [node name="LeftPen2" parent="." index="17" instance=ExtResource("2_qi0u7")]
-position = Vector2(763, -14)
+position = Vector2(765, -96)
 
 [node name="LeftPen3" parent="." index="18" instance=ExtResource("2_qi0u7")]
-position = Vector2(773, 325)
+position = Vector2(774, 282)
 
 [node name="LeftPen4" parent="." index="19" instance=ExtResource("2_qi0u7")]
 position = Vector2(786, 629)
 
 [node name="DownPen" parent="." index="20" instance=ExtResource("3_06pd5")]
-position = Vector2(-814, -681)
+position = Vector2(-1011, -698)
 
 [node name="Llama" parent="." index="21" instance=ExtResource("4_dkkux")]
 position = Vector2(1120, 44)

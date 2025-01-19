@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcwy1gy1tvgfx"]
+
+[ext_resource type="PackedScene" uid="uid://cvvbf06qty7h0" path="res://Scenes/Levels/level.tscn" id="1_wmu6g"]
+[ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="2_8f1qr"]
+[ext_resource type="AudioStream" uid="uid://cgmx4wm75hwh0" path="res://Audio/Music/MUSCLoop_Mid-tempo action - Phase 4_SIO.wav" id="2_itx6c"]
+[ext_resource type="PackedScene" uid="uid://bbbus1d55grq5" path="res://Scenes/Levels/end_game_level.tscn" id="2_w3t6q"]
+
+[sub_resource type="Curve2D" id="Curve2D_tdpjg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -75, -1070, 0, 0, 0, 0, -75, -258, 0, 0, 0, 0, -67, 441, 0, 0, 0, 0, -81, 1261)
+}
+point_count = 4
+
+[node name="FourthLevel" instance=ExtResource("1_wmu6g")]
+NEXT_SCENE = ExtResource("2_w3t6q")
+total_number_of_enemies_to_spawn = 12
+spawn_delay = 4.0
+enemy_speed = 0.1
+
+[node name="Path" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(-262147, 1, 0, -196611, 1, 0, -131075, 1, 0, -65539, 1, 0, -3, 1, 0, 65533, 1, 0, 131069, 1, 0, 196605, 1, 0, 262141, 1, 0, 327677, 1, 0, 393213, 1, 0, -327683, 1, 0, 458749, 1, 0)
+
+[node name="Path2D" parent="." index="9"]
+curve = SubResource("Curve2D_tdpjg")
+
+[node name="BaseArea" parent="." index="14"]
+position = Vector2(-77, 997)
+
+[node name="LevelMusic" parent="." index="15"]
+stream = ExtResource("2_itx6c")
+
+[node name="Llama" parent="." index="16" instance=ExtResource("2_8f1qr")]
+position = Vector2(-541, 39)
+
+[node name="Llama2" parent="." index="17" instance=ExtResource("2_8f1qr")]
+position = Vector2(800, -493)
+
+[node name="Llama3" parent="." index="18" instance=ExtResource("2_8f1qr")]
+position = Vector2(854, 508)
+
+[node name="Llama4" parent="." index="19" instance=ExtResource("2_8f1qr")]
+position = Vector2(-891, -332)
+
+[node name="Llama5" parent="." index="20" instance=ExtResource("2_8f1qr")]
+position = Vector2(-987, 338)

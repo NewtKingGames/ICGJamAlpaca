@@ -25,10 +25,10 @@ text = "THANKS FOR PLAYING"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player" parent="." index="5"]
+[node name="Player" parent="." index="6"]
 position = Vector2(-2, 346)
 
-[node name="Path2D" parent="." index="8"]
+[node name="Path2D" parent="." index="9"]
 visible = false
 
 [node name="Enemy" parent="." index="14" instance=ExtResource("2_23saw")]
@@ -73,5 +73,5 @@ position = Vector2(-983, 391)
 [node name="Llama4" parent="." index="27" instance=ExtResource("3_8eoft")]
 position = Vector2(544, 290)
 
-[node name="LevelMusic" parent="." index="28"]
+[node name="LevelMusic" parent="." index="29"]
 stream = ExtResource("5_0ctsy")
