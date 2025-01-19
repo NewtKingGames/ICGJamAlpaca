@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvvbf06qty7h0"]
+[gd_scene load_steps=19 format=3 uid="uid://cvvbf06qty7h0"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_fo8oa"]
 [ext_resource type="PackedScene" uid="uid://b0puoas2qdjsd" path="res://Scenes/UI/player_ui.tscn" id="1_icvwf"]
 [ext_resource type="PackedScene" uid="uid://c0wwu5nyfgk82" path="res://Scenes/Player/player.tscn" id="1_snsqa"]
 [ext_resource type="Texture2D" uid="uid://cmr2oofskex1p" path="res://Art/soil.png" id="2_xc6p7"]
+[ext_resource type="Texture2D" uid="uid://5kf736iu4btb" path="res://Art/FinalPaths.png" id="4_1dors"]
 [ext_resource type="Texture2D" uid="uid://dteoe5eb66xfd" path="res://Art/Environmental Spritesheet.png" id="4_s16ew"]
 [ext_resource type="Script" path="res://Scenes/Levels/projectiles.gd" id="5_8pb4v"]
 [ext_resource type="Script" path="res://Scenes/Levels/camera_2d.gd" id="7_apqf4"]
@@ -27,9 +28,20 @@ texture_region_size = Vector2i(1500, 1500)
 1:1/0 = 0
 0:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cgqpa"]
+texture = ExtResource("4_1dors")
+texture_region_size = Vector2i(750, 750)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_pb5mo"]
-tile_size = Vector2i(1500, 1500)
+tile_size = Vector2i(750, 750)
 sources/0 = SubResource("TileSetAtlasSource_nj3j1")
+sources/1 = SubResource("TileSetAtlasSource_cgqpa")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n83hs"]
 texture = ExtResource("4_s16ew")
