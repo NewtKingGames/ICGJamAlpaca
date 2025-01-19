@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbbus1d55grq5"]
+[gd_scene load_steps=6 format=3 uid="uid://bbbus1d55grq5"]
 
 [ext_resource type="PackedScene" uid="uid://cvvbf06qty7h0" path="res://Scenes/Levels/level.tscn" id="1_qyjs5"]
 [ext_resource type="PackedScene" uid="uid://cltt3duqip6jn" path="res://Scenes/Enemy/enemy.tscn" id="2_23saw"]
 [ext_resource type="FontFile" uid="uid://db1x3mqci3obb" path="res://Fonts/PixelOperator8-Bold.ttf" id="2_qcn8x"]
 [ext_resource type="PackedScene" uid="uid://dhtypwovh50vr" path="res://Scenes/Llama/llama.tscn" id="3_8eoft"]
+[ext_resource type="AudioStream" uid="uid://flt6q62oc677" path="res://Audio/Music/MUSCLoop_Cheery Acoustic Loop (Rhythm)_SIO.wav" id="5_0ctsy"]
 
 [node name="Last Level" instance=ExtResource("1_qyjs5")]
 total_number_of_enemies_to_spawn = 0
@@ -71,3 +72,6 @@ position = Vector2(-983, 391)
 
 [node name="Llama4" parent="." index="27" instance=ExtResource("3_8eoft")]
 position = Vector2(544, 290)
+
+[node name="LevelMusic" parent="." index="28"]
+stream = ExtResource("5_0ctsy")

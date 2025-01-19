@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://flt6q62oc677"
+path="res://.godot/imported/MUSCLoop_Cheery Acoustic Loop (Rhythm)_SIO.wav-9ae1f7a7d34ac68c1b5d14a24188f2ac.sample"
+
+[deps]
+
+source_file="res://Audio/Music/MUSCLoop_Cheery Acoustic Loop (Rhythm)_SIO.wav"
+dest_files=["res://.godot/imported/MUSCLoop_Cheery Acoustic Loop (Rhythm)_SIO.wav-9ae1f7a7d34ac68c1b5d14a24188f2ac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
