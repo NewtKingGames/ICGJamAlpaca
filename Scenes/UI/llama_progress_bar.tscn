@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://d5ywypwxqbei" path="res://Art/progress.png" id="2_76dyh"]
 
 [node name="LlamaProgressBar" type="TextureProgressBar"]
-modulate = Color(0, 0.705882, 1, 1)
 offset_top = -1.0
 offset_right = 300.0
 offset_bottom = 29.0
