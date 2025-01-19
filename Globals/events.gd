@@ -12,3 +12,5 @@ signal enemy_entered_base(enemy: Enemy)
 signal shake_screen(apply_shake: float)
 
 signal reset_values
+
+signal next_level_loading

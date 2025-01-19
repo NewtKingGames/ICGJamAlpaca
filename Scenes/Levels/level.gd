@@ -20,7 +20,8 @@ func _ready() -> void:
 	Events.enemy_entered_base.connect(_on_enemy_entered_base)
 	Events.enemy_died.connect(_on_enemy_died)
 	spawn_enemy_and_schedule_next_if_can_spawn()
-	get_tree().create_timer(1).timeout.connect(load_next_scene)
+	# Test code
+	#get_tree().create_timer(1).timeout.connect(load_next_scene)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset_level"):
@@ -50,5 +51,9 @@ func _on_enemy_died() -> void:
 		load_next_scene()
 
 func load_next_scene() -> void:
+	Events.next_level_loading.emit()
+	# Scrappy wait time to make sure we can play level complete effects before 
+	# transitioning
+	await get_tree().create_timer(1.5).timeout
 	Events.reset_values.emit()
 	LevelTransitionLayer.change_scene(NEXT_SCENE)
