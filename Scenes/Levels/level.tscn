@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cvvbf06qty7h0"]
+[gd_scene load_steps=23 format=3 uid="uid://cvvbf06qty7h0"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_fo8oa"]
 [ext_resource type="PackedScene" uid="uid://b0puoas2qdjsd" path="res://Scenes/UI/player_ui.tscn" id="1_icvwf"]
@@ -14,6 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://bfprymuidtjx3" path="res://Scenes/Objects/right_pen.tscn" id="12_4kdlw"]
 [ext_resource type="PackedScene" uid="uid://cqftrm7uf3xgb" path="res://Scenes/Objects/down_pen.tscn" id="12_dgd8l"]
 [ext_resource type="PackedScene" uid="uid://bu4p373j82il4" path="res://Scenes/Objects/up_pen.tscn" id="13_mcj71"]
+
+[sub_resource type="Gradient" id="Gradient_hkgvo"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.964744)
+colors = PackedColorArray(0.27451, 0.627451, 0, 1, 0.429047, 0.578919, 0.190595, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_650mu"]
+gradient = SubResource("Gradient_hkgvo")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nj3j1"]
 texture = ExtResource("7_l830a")
@@ -553,8 +562,14 @@ total_number_of_enemies_to_spawn = 4
 spawn_delay = 3.0
 
 [node name="GroundSprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(2.97726, 2.97726)
 texture = ExtResource("2_xc6p7")
+
+[node name="Grass Sprite" type="Sprite2D" parent="."]
+position = Vector2(-244, 161)
+scale = Vector2(56.4177, 32.6909)
+texture = SubResource("GradientTexture2D_650mu")
 
 [node name="Path" type="TileMap" parent="."]
 position = Vector2(405, 0)
@@ -567,7 +582,7 @@ layer_0/tile_data = PackedInt32Array(-65542, 65536, 0, -6, 0, 0, -131078, 65536,
 scale = Vector2(0.25, 0.25)
 tile_set = SubResource("TileSet_dulny")
 format = 2
-layer_0/tile_data = PackedInt32Array(-3276862, 131073, 1, -2424904, 131073, 1, -983098, 131073, 1, -2687037, 131073, 2, -458824, 65537, 1, -2752575, 1, 2, -393268, 131073, 2, -720940, 1, 0, -655382, 131073, 2, -655381, 65537, 0, 720901, 1, 0, 1507368, 131073, 0, 1835012, 131073, 0, -720907, 131073, 0)
+layer_0/tile_data = PackedInt32Array(-3276862, 131073, 1, -2424904, 131073, 1, -983098, 131073, 1, -2687037, 131073, 2, -458824, 65537, 1, -2752575, 1, 2, -393268, 131073, 2, -720940, 1, 0, -655382, 131073, 2, -655381, 65537, 0, 720901, 1, 0, 1507368, 131073, 0, 1835012, 131073, 0, -720907, 131073, 0, 2686904, 65537, 0, 2686973, 1, 1, 1572849, 1, 1, -786387, 1, 0, -1900561, 196609, 1, -2097250, 1, 1, 1966064, 65537, 2, 2949178, 1, 0, -1441701, 1, 0, -3407914, 65537, 2, 3604417, 1, 0, 2424748, 1, 0, -1572830, 1, 1, -786344, 65537, 0, 1835102, 1, 2, -3080234, 1, 0, -458843, 65537, 0, 3014647, 1, 2, 3145763, 196609, 1, 43, 196609, 0, -2686994, 65537, 0, -1441834, 1, 1, -2097210, 65537, 1, -1245214, 196609, 1, 524260, 196609, 1)
 
 [node name="PlayerUI" parent="." instance=ExtResource("1_icvwf")]
 
@@ -643,7 +658,7 @@ collision_mask = 39
 shape = SubResource("RectangleShape2D_2b7y5")
 
 [node name="BaseArea" parent="." instance=ExtResource("9_ld2s4")]
-position = Vector2(-649, -126)
+position = Vector2(746, -816)
 scale = Vector2(-7.7673, 7.41056)
 
 [node name="Llama" parent="." instance=ExtResource("2_n6vwf")]
