@@ -18,11 +18,8 @@ NEXT_SCENE = ExtResource("2_e0axp")
 [node name="Path" parent="." index="2"]
 layer_0/tile_data = PackedInt32Array(-262151, 1, 0, -196615, 1, 0, -131079, 1, 0, -65543, 1, 0, -7, 65537, 1, -6, 65537, 0, -5, 65537, 0, -4, 65537, 0, -3, 65537, 0, -2, 1, 1, 65534, 1, 0, 131070, 65537, 1, 131071, 65537, 0, 65536, 65537, 0, 65537, 131073, 1, 1, 1, 0, -65535, 1, 0, -131071, 1, 0, -196607, 1, 0, -262143, 1, 0, -327679, 1, 0, -393215, 1, 0)
 
-[node name="Path2D" parent="." index="8"]
+[node name="Path2D" parent="." index="9"]
 curve = SubResource("Curve2D_eg2db")
-
-[node name="BaseArea" parent="." index="13"]
-position = Vector2(683, -1026)
 
 [node name="UpPen" parent="." index="14" instance=ExtResource("2_i6txv")]
 position = Vector2(-713, 143)
@@ -39,3 +36,6 @@ position = Vector2(564, -445)
 
 [node name="Llama3" parent="." index="18" instance=ExtResource("4_uoyh6")]
 position = Vector2(521, 564)
+
+[node name="BaseArea" parent="." index="19"]
+position = Vector2(683, -1026)
