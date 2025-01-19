@@ -1,9 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0wwu5nyfgk82"]
+[gd_scene load_steps=22 format=3 uid="uid://c0wwu5nyfgk82"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_igo0k"]
 [ext_resource type="Texture2D" uid="uid://t362frlrfgvg" path="res://icon.svg" id="1_oyuok"]
 [ext_resource type="Texture2D" uid="uid://bkrqle5ocn1yh" path="res://Art/Farmer Body Spritesheet.png" id="3_v42vc"]
 [ext_resource type="Texture2D" uid="uid://cthvdp2vyju8t" path="res://Art/Hands Spritesheet.png" id="4_t7jjn"]
+[ext_resource type="PackedScene" uid="uid://brpe5r176mfnl" path="res://Scenes/Objects/sound_player.tscn" id="5_lgpcy"]
+[ext_resource type="AudioStream" uid="uid://cnwbho2wtrlus" path="res://Audio/FEETMisc_Grass Land 1_SIO.wav" id="6_vvwbh"]
+[ext_resource type="AudioStream" uid="uid://btqeqvvpl75ap" path="res://Audio/FEETMisc_Grass Land 2_SIO.wav" id="7_owqj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7i13k"]
 
@@ -159,10 +162,13 @@ scale = Vector2(0.383845, 0.383845)
 sprite_frames = SubResource("SpriteFrames_htsoq")
 animation = &"walk_down"
 autoplay = "idle_down"
-frame_progress = 0.901807
+frame_progress = 0.241122
 
 [node name="Hands" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(-12, 78)
 scale = Vector2(0.263791, 0.325722)
 sprite_frames = SubResource("SpriteFrames_xlwbt")
+
+[node name="SoundPlayer" parent="." instance=ExtResource("5_lgpcy")]
+sounds = Array[AudioStream]([ExtResource("6_vvwbh"), ExtResource("7_owqj2")])

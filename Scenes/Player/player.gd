@@ -11,10 +11,19 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $VisibleNodes/AnimatedSprite2D
 @onready var visible_nodes: Node2D = $VisibleNodes
 @onready var hands: AnimatedSprite2D = $Hands
+@onready var sound_player: SoundPlayer = $SoundPlayer
 
 var previous_velocity: Vector2 = Vector2(1, 0)
 
 var held_llama: Llama = null
+
+var can_play_walk_noise: bool = true: 
+	set(value):
+		if value == can_play_walk_noise:
+			return
+		if value == false:
+			get_tree().create_timer(0.5).timeout.connect(func(): can_play_walk_noise = true)
+		can_play_walk_noise = value
 
 func _ready() -> void:
 	llama_grab_area.body_entered.connect(_on_llama_collision)
@@ -40,6 +49,9 @@ func _physics_process(delta: float) -> void:
 	if not held_llama:
 		rotation = 0
 		velocity = direction * player_walk_speed
+		if velocity != Vector2.ZERO and can_play_walk_noise:
+			sound_player.play_sound()
+			can_play_walk_noise = false
 		play_proper_animation(velocity)
 		#if velocity == Vector2.ZERO:
 			#look_at(get_global_mouse_position())
